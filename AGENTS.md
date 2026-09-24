@@ -43,6 +43,10 @@
 - `../Silent-Storm-Reconstruction/diagnostics/PORTABLE-USER-PATHS.md` — политика
   пользовательского каталога и тесты на Windows/Linux. Игра уже пишет сейвы
   отдельно от ресурсов; старый `save\\` — только источник первого импорта.
+- `../Silent-Storm-Reconstruction/diagnostics/ARM64-PORTABLE-CORE.md` —
+  кросс-сборка переносимых модулей для ARM64, QEMU-тесты с ASan/UBSan и
+  сверка значений/хешей `game.db` и `Fonts.res` с Windows x64. Полная
+  игра на ARM64 этим не проверена.
 - `../Silent-Storm-Reconstruction/STAGE0-BASELINE.md` — зафиксированный x86
   эталон, данные, сборка, контрольные сценарии и известные ограничения.
 - `../Silent-Storm-Reconstruction/PORTING-WINX64.md` — журнал x64-проверок

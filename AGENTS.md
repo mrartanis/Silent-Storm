@@ -90,7 +90,7 @@
 ```powershell
 $env:UCRTContentRoot='C:\Program Files (x86)\Windows Kits\10\'
 $cmake='G:\SS\lab\tools\VS2022\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe'
-& $cmake --build 'G:\SS\lab\build-x64' --config RelWithDebInfo --target Game FaceProbe FaceGDPProbe NativeFaceGenApiCheck PortableGameDatabaseProbe
+ & $cmake --build 'G:\SS\lab\build-x64' --config RelWithDebInfo --target Game FaceProbe FaceGDPProbe NativeFaceGenApiCheck PortableGameDatabaseProbe --parallel 12
 & 'G:\SS\lab\tools\VS2022\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\ctest.exe' --test-dir 'G:\SS\lab\build-x64' -C RelWithDebInfo --output-on-failure
 ```
 
@@ -98,6 +98,9 @@ $cmake='G:\SS\lab\tools\VS2022\Common7\IDE\CommonExtensions\Microsoft\CMake\CMak
 `diagnostics/Build-Lab.ps1 -Architecture x64 -BuildId <новое-имя>`.
 Архив Win32 создавайте только для конкретного сравнения с x86-оракулом.
 Скрипт требует чистый рабочий репозиторий и сам создаёт архив EXE/PDB.
+По умолчанию он собирает в 12 потоков (не больше числа логических ядер);
+для другого лимита задайте `-BuildJobs N`. На проверенном Linux-хосте
+32 логических ядра и 62 ГБ RAM, переносимые цели собирайте с `-j 16`.
 Не выдавайте инкрементальную сборку или зелёный CTest за полный игровой прогон.
 
 Контрактные проверки этапа 0 находятся в `diagnostics/Test-{Script,Movement,

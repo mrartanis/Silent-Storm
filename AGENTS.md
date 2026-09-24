@@ -26,6 +26,11 @@
   свидетельства, команды и ограничения этапа 1. SDL3 + bgfx проверены только
   отдельной пробой `../Silent-Storm-Reconstruction/probes/sdl3-bgfx/README.md`,
   не встроены в `Game.exe`; macOS и физический Linux GPU ещё не проверены.
+- `../Silent-Storm-Reconstruction/diagnostics/PORTABLE-PACKAGE.md` и
+  `../Silent-Storm-Reconstruction/diagnostics/STRUCTURE-WIRE.md` — первые
+  проверки этапа 2: переносимый индекс `.res` и 32-битные дисковые ID
+  объектного графа. Вторая правка проверена на чистых Windows x86/x64,
+  но не переносит весь `CStructureSaver` или `game.db` на Linux.
 - `../Silent-Storm-Reconstruction/STAGE0-BASELINE.md` — зафиксированный x86
   эталон, данные, сборка, контрольные сценарии и известные ограничения.
 - `../Silent-Storm-Reconstruction/PORTING-WINX64.md` — журнал x64-проверок

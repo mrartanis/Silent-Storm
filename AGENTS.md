@@ -22,6 +22,8 @@
   только для согласованных данных и сценариев; этап 1 закрыт по согласованному
   объёму Windows/Linux без проверки macOS. Следующая работа — этап 2,
   переносимое 64-битное ядро и загрузка данных.
+  Восстановленная 32-битная игра больше не целевая сборка: x86-оригинал и
+  старые x86-пробы нужны лишь как сравнительный оракул.
 - `../Silent-Storm-Reconstruction/diagnostics/PORTABILITY-MEDIA.md` —
   свидетельства, команды и ограничения этапа 1. SDL3 + bgfx проверены только
   отдельной пробой `../Silent-Storm-Reconstruction/probes/sdl3-bgfx/README.md`,
@@ -32,8 +34,8 @@
   — проверки этапа 2: переносимый индекс `.res`, 32-битные дисковые ID
   объектного графа, заголовки верхних и вложенных чанков, объектную таблицу
   `game.db`.
-  Последняя правка проверена на чистых Windows x86/x64 с загрузкой старого сейва и
-  отдельным Linux-пробником, но не переносит все таблицы `game.db` на Linux.
+  Последние правки проверены на чистой Windows x64 с загрузкой старого сейва
+  и отдельным Linux-пробником, но не переносят все таблицы `game.db` на Linux.
 - `../Silent-Storm-Reconstruction/STAGE0-BASELINE.md` — зафиксированный x86
   эталон, данные, сборка, контрольные сценарии и известные ограничения.
 - `../Silent-Storm-Reconstruction/PORTING-WINX64.md` — журнал x64-проверок
@@ -67,15 +69,14 @@
 ```powershell
 $env:UCRTContentRoot='C:\Program Files (x86)\Windows Kits\10\'
 $cmake='G:\SS\lab\tools\VS2022\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe'
-& $cmake --build 'G:\SS\lab\build-x86' --config RelWithDebInfo --target FaceProbe FaceGDPProbe
 & $cmake --build 'G:\SS\lab\build-x64' --config RelWithDebInfo --target Game FaceProbe FaceGDPProbe NativeFaceGenApiCheck
-& 'G:\SS\lab\tools\VS2022\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\ctest.exe' --test-dir 'G:\SS\lab\build-x86' -C RelWithDebInfo --output-on-failure
 & 'G:\SS\lab\tools\VS2022\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\ctest.exe' --test-dir 'G:\SS\lab\build-x64' -C RelWithDebInfo --output-on-failure
 ```
 
 Для конфигурации с нуля и архива воспроизводимой сборки используйте
-`diagnostics/Build-Lab.ps1 -Architecture x64 -BuildId <новое-имя>` (или
-`Win32`). Он требует чистый рабочий репозиторий и сам создаёт архив EXE/PDB.
+`diagnostics/Build-Lab.ps1 -Architecture x64 -BuildId <новое-имя>`.
+Архив Win32 создавайте только для конкретного сравнения с x86-оракулом.
+Скрипт требует чистый рабочий репозиторий и сам создаёт архив EXE/PDB.
 Не выдавайте инкрементальную сборку или зелёный CTest за полный игровой прогон.
 
 Контрактные проверки этапа 0 находятся в `diagnostics/Test-{Script,Movement,

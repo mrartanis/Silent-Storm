@@ -43,6 +43,8 @@
 - `../Silent-Storm-Reconstruction/diagnostics/PORTABLE-USER-PATHS.md` — политика
   пользовательского каталога и тесты на Windows/Linux. Игра уже пишет сейвы
   отдельно от ресурсов; старый `save\\` — только источник первого импорта.
+  Windows-каталог и файловые операции сейвов используют wide API, в том числе
+  проверены в LabRun с кириллическим путём. Имена слотов в UI пока ограничены ACP.
 - `../Silent-Storm-Reconstruction/diagnostics/ARM64-PORTABLE-CORE.md` —
   кросс-сборка переносимых модулей для ARM64, QEMU-тесты с ASan/UBSan и
   сверка значений/хешей `game.db` и `Fonts.res` с Windows x64. Полная
@@ -163,6 +165,10 @@ $out='G:\SS\lab\runs\<новый-run-id>\evidence\face-gdp'
 & .\diagnostics\New-LabRun.ps1 -BuildId '<имя-архива>' -RunId '<новый-run-id>'
 & .\diagnostics\Start-LabRun.ps1 -RunDirectory 'G:\SS\lab\runs\<новый-run-id>'
 ```
+
+Для проверки Unicode-пути укажите `-UserDataDirectory` с абсолютным путём
+внутри этого LabRun; скрипт запишет его в `evidence/run.json` и передаст игре
+через `S2_USER_DATA_DIR`. Без параметра используется `<LabRun>/user-data`.
 
 Для быстрых проверок меню и миссии добавьте `-SkipIntro` к
 `New-LabRun.ps1`: он создаст только в новом LabRun файл

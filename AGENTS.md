@@ -34,8 +34,12 @@
   — проверки этапа 2: переносимый индекс `.res`, 32-битные дисковые ID
   объектного графа, заголовки верхних и вложенных чанков, объектную таблицу
   `game.db`.
-  Последние правки проверены на чистой Windows x64 с загрузкой старого сейва
-  и отдельным Linux-пробником, но не переносят все таблицы `game.db` на Linux.
+  Эти правки проверены на чистой Windows x64 с загрузкой старого сейва и
+  отдельным Linux-пробником; сам декодер таблиц описан ниже.
+- `../Silent-Storm-Reconstruction/diagnostics/PORTABLE-GAME-DB.md` — переносимый
+  декодер всех игровых колонночных таблиц release-v1 `game.db` и сверка хешей
+  значений/отношений с текущим x64-загрузчиком. Не путайте это с интеграцией
+  декодера в Linux-игру или паритетом с историческим x86-релизом.
 - `../Silent-Storm-Reconstruction/STAGE0-BASELINE.md` — зафиксированный x86
   эталон, данные, сборка, контрольные сценарии и известные ограничения.
 - `../Silent-Storm-Reconstruction/PORTING-WINX64.md` — журнал x64-проверок
@@ -69,7 +73,7 @@
 ```powershell
 $env:UCRTContentRoot='C:\Program Files (x86)\Windows Kits\10\'
 $cmake='G:\SS\lab\tools\VS2022\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe'
-& $cmake --build 'G:\SS\lab\build-x64' --config RelWithDebInfo --target Game FaceProbe FaceGDPProbe NativeFaceGenApiCheck
+& $cmake --build 'G:\SS\lab\build-x64' --config RelWithDebInfo --target Game FaceProbe FaceGDPProbe NativeFaceGenApiCheck PortableGameDatabaseProbe
 & 'G:\SS\lab\tools\VS2022\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\ctest.exe' --test-dir 'G:\SS\lab\build-x64' -C RelWithDebInfo --output-on-failure
 ```
 

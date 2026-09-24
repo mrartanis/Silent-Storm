@@ -30,8 +30,8 @@
   `../Silent-Storm-Reconstruction/diagnostics/STRUCTURE-WIRE.md` и
   `../Silent-Storm-Reconstruction/diagnostics/PORTABLE-STRUCTURE-CHUNKS.md`
   — проверки этапа 2: переносимый индекс `.res`, 32-битные дисковые ID
-  объектного графа и заголовки верхних чанков `game.db`. Последняя правка
-  проверена на чистых Windows x86/x64 с загрузкой одного старого сейва и
+  объектного графа, заголовки верхних чанков и объектную таблицу `game.db`.
+  Последняя правка проверена на чистых Windows x86/x64 с загрузкой старого сейва и
   отдельным Linux-пробником, но не переносит все таблицы `game.db` на Linux.
 - `../Silent-Storm-Reconstruction/STAGE0-BASELINE.md` — зафиксированный x86
   эталон, данные, сборка, контрольные сценарии и известные ограничения.

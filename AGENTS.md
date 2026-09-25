@@ -143,6 +143,10 @@ Lua-сценарии, ИИ, бой, взрывы, разрушения и мар
   Linux-сборка оригинального `MapBuild.cpp` и связанный тест его
   `ConvertFlags` на реальной базе; дальнейший рубеж — игровой загрузчик
   ресурсов и полный `BuildMap` миссии.
+- `../Silent-Storm-Reconstruction/diagnostics/NATIVE-RESOURCE-LOADER-LINUX.md` —
+  штатные `FilesPackage.cpp` и `GResource.cpp` на Linux: `.res`, приоритет
+  отдельных файлов и модов, асинхронное чтение, точки маршрутов из
+  `Waypoints.res`, x86/x64/ARM64-сверка и два известных исключения.
 - `../Silent-Storm-Reconstruction/STAGE0-BASELINE.md` — зафиксированный x86
   эталон, данные, сборка, контрольные сценарии и известные ограничения.
 - `../Silent-Storm-Reconstruction/PORTING-WINX64.md` — журнал x64-проверок

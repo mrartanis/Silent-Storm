@@ -773,6 +773,18 @@ Linux-регрессии GCC x64/ARM64 и Clang x64 прошли 65/65.
 Чистый x64-архив `stage2-ai-dependencies-20260925-01` из `8a47e2d`
 загрузил `DB_OLD` до `LOAD-SLOT-DONE` в новом LabRun, завершился по
 `quit` без дампа и FMOD DLL; хеш `Game.exe` совпал с архивом.
+Следующая итерация собрала оригинальный `wOSBase.cpp` на Linux GCC
+x64/ARM64 и Clang x64, подключив настоящую `CheckItemsBreakGlass` без
+заглушки. `NativeHeightNetworkTests` создаёт `CPathNetwork`, задаёт тайл
+этажа и исполняет `CHeightLayers::ComputeLayers` со сглаживанием.
+Windows x86/x64 и Linux GCC x64/ARM64/Clang x64 совпали по максимуму
+`0.27720881` и хешу всего поля 5×5 `CC09769B5563B4C2`. Полные наборы
+прошли: Windows x64 92/92, Linux — по 66/66. Это синтетический фрагмент,
+а не проверка загрузки и маршрутов миссии; этап 2 остаётся открыт.
+Пока полный граф мира не связан на Linux, для `wOSBase.cpp` и
+`wHeightLayers.cpp` временно отключён только UBSan-vptr (ASan и прочие
+проверки UBSan работают); ограничение описано в
+`../Silent-Storm-Reconstruction/diagnostics/NATIVE-AI-GRID-LINUX.md`.
 Чистый Windows x64-архив `stage2-terrain-data-compile-20260925-01` из
 `bf019b3` загрузил `DB_OLD` в новом LabRun и завершился без дампа;
 Linux-линковку `TerrainInfo` подтверждает отдельный тест, а не этот прогон.

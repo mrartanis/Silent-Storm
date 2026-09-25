@@ -123,14 +123,14 @@ Lua-сценарии, ИИ, бой, взрывы, разрушения и мар
   `STerrainInfo` через игровой сериализатор. Это ещё не загрузка карты миссии.
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-HEIGHT-LAYERS-LINUX.md` —
   тест штатного `CHeightLayers` (поле высот, этажи и сериализация) на
-  Windows/Linux x64/ARM64. Ветка `ComputeLayers` с сетью путей `aiGrid`
-  пока не связана на Linux; не считайте тест кэша проверкой маршрутов миссии.
+  Windows/Linux x64/ARM64. Отдельный `NativeHeightNetworkTests` уже
+  исполняет `ComputeLayers` с настоящим `CPathNetwork` на синтетическом
+  тайле; это ещё не проверка маршрутов загруженной миссии.
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-AI-GRID-LINUX.md` —
-  граница переноса оригинального `aiGrid.cpp` и прямых AI-зависимостей:
-  сборка на Linux x64/ARM64, исполняемый тест AI-журнала, пробная линковка
-  полного `CPathNetwork`. Последняя обязательная ссылка — игровой
-  `CheckItemsBreakGlass` из `wOSBase.cpp`; не подменять её заглушкой.
-  Здесь же исправление UB в `CPool` и тест переходов между блоками.
+  перенос оригинального `aiGrid.cpp` и прямых AI-зависимостей: сборка на
+  Linux x64/ARM64, исполняемые тесты AI-журнала и высотной сетки.
+  `CheckItemsBreakGlass` подключена из настоящего `wOSBase.cpp`, не из
+  заглушки. Здесь же временный UBSan-vptr gate и исправление UB в `CPool`.
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-GAME-DB-LINUX.md` —
   загрузка оригинального `game.db` через игровые `BasicDB`/DBFormat на Linux
   x64/ARM64, сверка всех 155 таблиц и значений материалов, команды тестов,

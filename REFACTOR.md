@@ -770,6 +770,9 @@ Linux-регрессии GCC x64/ARM64 и Clang x64 прошли 65/65.
 разрушения. Пока она не подключена без заглушки, `ComputeLayers` и
 маршруты миссии на Linux не заявляются. Подробности и команды — в
 `../Silent-Storm-Reconstruction/diagnostics/NATIVE-AI-GRID-LINUX.md`.
+Чистый x64-архив `stage2-ai-dependencies-20260925-01` из `8a47e2d`
+загрузил `DB_OLD` до `LOAD-SLOT-DONE` в новом LabRun, завершился по
+`quit` без дампа и FMOD DLL; хеш `Game.exe` совпал с архивом.
 Чистый Windows x64-архив `stage2-terrain-data-compile-20260925-01` из
 `bf019b3` загрузил `DB_OLD` в новом LabRun и завершился без дампа;
 Linux-линковку `TerrainInfo` подтверждает отдельный тест, а не этот прогон.

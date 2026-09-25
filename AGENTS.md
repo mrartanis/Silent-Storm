@@ -126,9 +126,11 @@ Lua-сценарии, ИИ, бой, взрывы, разрушения и мар
   Windows/Linux x64/ARM64. Ветка `ComputeLayers` с сетью путей `aiGrid`
   пока не связана на Linux; не считайте тест кэша проверкой маршрутов миссии.
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-AI-GRID-LINUX.md` —
-  граница переноса оригинального `aiGrid.cpp`: сборка на Linux x64/ARM64,
-  нерешённые зависимости линковки для полного `CPathNetwork`, исправление
-  UB в `CPool` и тест переходов между блоками.
+  граница переноса оригинального `aiGrid.cpp` и прямых AI-зависимостей:
+  сборка на Linux x64/ARM64, исполняемый тест AI-журнала, пробная линковка
+  полного `CPathNetwork`. Последняя обязательная ссылка — игровой
+  `CheckItemsBreakGlass` из `wOSBase.cpp`; не подменять её заглушкой.
+  Здесь же исправление UB в `CPool` и тест переходов между блоками.
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-GAME-DB-LINUX.md` —
   загрузка оригинального `game.db` через игровые `BasicDB`/DBFormat на Linux
   x64/ARM64, сверка всех 155 таблиц и значений материалов, команды тестов,

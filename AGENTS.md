@@ -84,7 +84,11 @@ Lua-сценарии, ИИ, бой, взрывы, разрушения и мар
   или сохранения Lua-состояния; этап 2 остаётся открытым.
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-STREAMS-LINUX.md` —
   сборка штатных потоков `FileIO`, тест Unicode-пути и чтение оригинального
-  `Fonts.res` на Windows x64, Linux x64/ARM64. Сериализатор ещё не перенесён.
+  `Fonts.res` на Windows x64, Linux x64/ARM64. Продолжение — ниже.
+- `../Silent-Storm-Reconstruction/diagnostics/NATIVE-STRUCTURE-LINUX.md` —
+  уже перенесённый на Linux x64/ARM64 штатный `CStructureSaver`, объектный
+  граф, packed-кодек и сохранение Lua-состояния; геометрия и классы мира
+  всё ещё не включены. Читайте этот документ после записи о потоках выше.
 - `../Silent-Storm-Reconstruction/STAGE0-BASELINE.md` — зафиксированный x86
   эталон, данные, сборка, контрольные сценарии и известные ограничения.
 - `../Silent-Storm-Reconstruction/PORTING-WINX64.md` — журнал x64-проверок

@@ -807,6 +807,10 @@ Clang x64. Связанный `NativeMapFlagsTests` вызывает его иг
 целиком ещё не связан с Linux-ресурсами и не исполнен на миссии, поэтому
 этап 2 открыт. Команды и следующий рубеж — в
 `../Silent-Storm-Reconstruction/diagnostics/NATIVE-MAP-BUILD-LINUX.md`.
+Чистый x64-архив `stage2-map-flags-20260925-01` из `c628f5e` загрузил
+`DB_OLD` до `LOAD-SLOT-DONE` в новом LabRun, завершился по `quit` без
+дампа и FMOD DLL. SHA-256 `Game.exe` архива и запуска совпал:
+`4E0EFFAB305826FBB0338F7A97CC44AE99633650209B60A46E9E359CCA967A64`.
 Чистый Windows x64-архив `stage2-terrain-data-compile-20260925-01` из
 `bf019b3` загрузил `DB_OLD` в новом LabRun и завершился без дампа;
 Linux-линковку `TerrainInfo` подтверждает отдельный тест, а не этот прогон.

@@ -12,12 +12,16 @@
   автотесты. Проверяйте его `git status` отдельно. Не переносите коммиты между
   репозиториями без явной задачи.
 - `G:\SS\lab` — локальная лаборатория: изолированная копия оригинальных данных
-  `baseline`, toolchain, каталоги `build-x86`/`build-x64`, архивы `builds`,
-  запуски `runs` и извлечённые эталонные потоки. Это не Git. Лицензионные
+  `baseline`, toolchain, старые архивы `builds`, запуски `runs` и извлечённые
+  эталонные потоки. Каталоги `build-x86`/`build-x64` на G: удалены как
+  воспроизводимые сборки; новые создавайте здесь при необходимости. Это не Git. Лицензионные
   ресурсы, DLL, сохранения, дампы и скриншоты не добавляйте в репозитории.
-- `D:\SS-lab` — новые большие сборки, архивы и изолированные запуски:
-  на G: осталось мало места. Ресурсы можно подключать junction к
-  `G:\SS\lab\baseline\res`; после прогона проверяйте SHA-256 исходных `.res`.
+- `D:\SS-lab` — удалён пользователем; не считайте его доступной лабораторией
+  и не выносите новые операции или артефакты за пределы G:. На G: освобождено
+  место удалением старых воспроизводимых сборок и бинарников промежуточных
+  архивов этапа 2. Их `source.zip`, журналы, конфигурации и хеши сохранены,
+  но такие архивы уже не запускаемы. Ресурсы берите из
+  `G:\SS\lab\baseline\res` и после прогона проверяйте их SHA-256.
 
 Эталон наблюдаемого поведения — оригинальный Steam EXE с соответствующими
 данными, запущенный в отдельном LabRun. Восстановленные исходники и x86-сборка
@@ -87,8 +91,9 @@ Lua-сценарии, ИИ, бой, взрывы, разрушения и мар
   `Fonts.res` на Windows x64, Linux x64/ARM64. Продолжение — ниже.
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-STRUCTURE-LINUX.md` —
   уже перенесённый на Linux x64/ARM64 штатный `CStructureSaver`, объектный
-  граф, packed-кодек и сохранение Lua-состояния; геометрия и классы мира
-  всё ещё не включены. Читайте этот документ после записи о потоках выше.
+  граф, packed-кодек, сохранение Lua-состояния и геометрические поля.
+  Проверен также Clang x64; классы мира и игровой цикл ещё не включены.
+  Читайте этот документ после записи о потоках выше.
 - `../Silent-Storm-Reconstruction/STAGE0-BASELINE.md` — зафиксированный x86
   эталон, данные, сборка, контрольные сценарии и известные ограничения.
 - `../Silent-Storm-Reconstruction/PORTING-WINX64.md` — журнал x64-проверок
@@ -122,12 +127,12 @@ Lua-сценарии, ИИ, бой, взрывы, разрушения и мар
 ```powershell
 $env:UCRTContentRoot='C:\Program Files (x86)\Windows Kits\10\'
 $cmake='G:\SS\lab\tools\VS2022\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe'
- & $cmake --build 'G:\SS\lab\build-x64' --config RelWithDebInfo --target Game FaceProbe FaceGDPProbe NativeFaceGenApiCheck PortableGameDatabaseProbe --parallel 12
-& 'G:\SS\lab\tools\VS2022\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\ctest.exe' --test-dir 'G:\SS\lab\build-x64' -C RelWithDebInfo --output-on-failure
+ & $cmake --build 'G:\SS\lab\build-x64-stage2' --config RelWithDebInfo --target Game FaceProbe FaceGDPProbe NativeFaceGenApiCheck PortableGameDatabaseProbe --parallel 12
+& 'G:\SS\lab\tools\VS2022\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\ctest.exe' --test-dir 'G:\SS\lab\build-x64-stage2' -C RelWithDebInfo --output-on-failure
 ```
 
 Для конфигурации с нуля и архива воспроизводимой сборки используйте
-`diagnostics/Build-Lab.ps1 -Architecture x64 -BuildId <новое-имя>`.
+`diagnostics/Build-Lab.ps1 -Architecture x64 -BuildId <новое-имя> -LabRoot G:\SS\lab -ArchiveRoot G:\SS\lab\builds -BuildDirectory G:\SS\lab\build-x64-stage2 -NativeMedia -FFmpegRoot <корень FFmpeg> -MiniaudioIncludeDir <каталог miniaudio>`.
 Архив Win32 создавайте только для конкретного сравнения с x86-оракулом.
 Скрипт требует чистый рабочий репозиторий и сам создаёт архив EXE/PDB.
 По умолчанию он собирает в 12 потоков (не больше числа логических ядер);

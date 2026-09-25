@@ -785,6 +785,9 @@ Windows x86/x64 и Linux GCC x64/ARM64/Clang x64 совпали по макси�
 `wHeightLayers.cpp` временно отключён только UBSan-vptr (ASan и прочие
 проверки UBSan работают); ограничение описано в
 `../Silent-Storm-Reconstruction/diagnostics/NATIVE-AI-GRID-LINUX.md`.
+Чистый x64-архив `stage2-ai-height-network-20260925-01` из `332b162`
+загрузил `DB_OLD` в новом LabRun до `LOAD-SLOT-DONE`, завершился по
+`quit` без дампа и FMOD DLL; хеш `Game.exe` в запуске совпал с архивом.
 Чистый Windows x64-архив `stage2-terrain-data-compile-20260925-01` из
 `bf019b3` загрузил `DB_OLD` в новом LabRun и завершился без дампа;
 Linux-линковку `TerrainInfo` подтверждает отдельный тест, а не этот прогон.

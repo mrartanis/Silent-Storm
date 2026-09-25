@@ -117,10 +117,10 @@ Lua-сценарии, ИИ, бой, взрывы, разрушения и мар
   необходимый классам мира и кешу высот. Отдельная Linux-цель не является
   переносом полного графа мира.
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-TERRAIN-DATA-LINUX.md` —
-  текущая граница данных рельефа: оригинальный `TerrainInfo.cpp` компилируется
-  на Linux x64/ARM64, а Windows-тест проверяет регионы `DG`. Типизированный
-  `BasicDB` и DBFormat уже загружают `game.db` на Linux, но сам `TerrainInfo`
-  там ещё не выполняется; не считайте этот compile-gate загрузкой карты миссии.
+  текущая граница данных рельефа: оригинальный `TerrainInfo.cpp` выполняется
+  на Windows и Linux x64/ARM64, в том числе с типизированным `game.db`;
+  тест проверяет регионы `DG`, ссылки на материал/броню и round-trip
+  `STerrainInfo` через игровой сериализатор. Это ещё не загрузка карты миссии.
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-GAME-DB-LINUX.md` —
   загрузка оригинального `game.db` через игровые `BasicDB`/DBFormat на Linux
   x64/ARM64, сверка всех 155 таблиц и значений материалов, команды тестов,

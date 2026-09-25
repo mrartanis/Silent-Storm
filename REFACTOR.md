@@ -209,6 +209,17 @@ Linux x86-64 и ARM64/QEMU по 32/32 под ASan/UBSan, целевые x86-те
 в этом миссионном сейве не проверен. См.
 `../Silent-Storm-Reconstruction/diagnostics/PORTABLE-BOOL-SYNC-WIRE.md`.
 
+Массивы привязки коллизионных частей `NAI::CConvexHull::SMap`
+перенесены на явный восьмибайтный little-endian формат двух signed
+int32 (`nPieceID`, `nUserID`). Windows x64 CTest 54/54, Linux x86-64
+и ARM64/QEMU по 33/33 под ASan/UBSan; целевой x86-тест 1/1 и
+сборка `Main` прошли. Чистый x64-архив загрузил старый слот,
+записал и открыл новый, точный тип исчез из raw-журнала;
+восстановленная x86-игра прочитала новый слот без дампа.
+Связанные ресурсы сохранили SHA-256 (23/23). Это совместимость
+данных, не паритет коллизий и решений ИИ со Steam; см.
+`../Silent-Storm-Reconstruction/diagnostics/PORTABLE-CONVEX-HULL-MAP-WIRE.md`.
+
 На 2026-09-24 контрольный Windows/x64-шаг проверен на выбранных сценариях
 этапа 0; выделенная независимая часть собирается и проходит четыре теста
 на Linux x86-64 и Windows; SDL3 + bgfx проверены

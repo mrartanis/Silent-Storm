@@ -732,6 +732,19 @@ ASan/UBSan и Clang x64 — 62/62 после расширения теста. В
 x86-сборка дала те же значения регионов.
 Это проверка данных рельефа, а не закрытый перенос карты миссии. См.
 `../Silent-Storm-Reconstruction/diagnostics/NATIVE-TERRAIN-DATA-LINUX.md`.
+Следующий слой, оригинальный `CHeightLayers`, теперь компилируется на
+Linux x64/ARM64/Clang и выполняет тест кэша этажей: копию высот,
+разрешение этажа и сохранение/восстановление полей через `CStructureSaver`.
+Проверка полного `ComputeLayers` с тайлами `CPathNetwork` ещё не сделана:
+оригинальный `aiGrid.cpp` пока зависит от Windows. Тест намеренно не
+проверяет маршруты миссии и не подтверждает строительные высоты; граница,
+санитайзерное исключение для неперенесённой ветки и команды описаны в
+`../Silent-Storm-Reconstruction/diagnostics/NATIVE-HEIGHT-LAYERS-LINUX.md`.
+Windows x64 — 90/90, Linux GCC x64/ARM64 и Clang x64 — 63/63; восстановленная
+x86-сборка дала те же числа `6.25/9.50/2`. Чистый x64-архив
+`stage2-height-cache-20260925-01` из `d4b11b7` загрузил `DB_OLD` до
+`LOAD-SLOT-DONE` в `stage2-height-cache-clean-01`, завершился без дампа;
+FMOD DLL в запуске отсутствует.
 Чистый Windows x64-архив `stage2-terrain-data-compile-20260925-01` из
 `bf019b3` загрузил `DB_OLD` в новом LabRun и завершился без дампа;
 Linux-линковку `TerrainInfo` подтверждает отдельный тест, а не этот прогон.

@@ -828,6 +828,17 @@ x64/ARM64 и Clang x64 по 71/71. GCC x64/ARM64 запускались с ASan/
 загрузил `DB_OLD` до `LOAD-SLOT-DONE` в новом LabRun и завершился по
 `quit` без дампа и FMOD DLL. Хеш `Game.exe` архива и запуска совпал:
 `50045E9F1EFD5B9F0087A8FED7CE5DD2AF543AC248ACCB18B05C652CBC200AB2`.
+Следующая зависимость сборки миссии, оригинальный `PolyUtils.cpp`,
+перенесена на Linux. Прямой тест `ClipPolygon` даёт пересечение площадью
+4 и остаток 12 на Windows x86/x64 и Linux GCC x64/ARM64, Clang x64.
+ARM64 ASan/UBSan обнаружил чтение неинициализированного типа полигона;
+инициализация исправлена, повторный тест прошёл. Игровой `Time.h`
+переименован в `A5Time.h`, так как на Windows он затенял стандартный
+`<time.h>` и ломал чистую сборку части тестов. После исправления полный
+Windows x64 build, включая `Game.exe`, и 98/98 тестов прошли; Linux —
+по 72/72. Полный `BuildMap` пока не связан: нужны оригинальные модули
+зданий и рельефа. Подробности — в
+`../Silent-Storm-Reconstruction/diagnostics/NATIVE-MAP-POLYGONS-LINUX.md`.
 Чистый Windows x64-архив `stage2-terrain-data-compile-20260925-01` из
 `bf019b3` загрузил `DB_OLD` в новом LabRun и завершился без дампа;
 Linux-линковку `TerrainInfo` подтверждает отдельный тест, а не этот прогон.

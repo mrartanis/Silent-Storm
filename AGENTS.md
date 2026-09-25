@@ -147,6 +147,10 @@ Lua-сценарии, ИИ, бой, взрывы, разрушения и мар
   штатные `FilesPackage.cpp` и `GResource.cpp` на Linux: `.res`, приоритет
   отдельных файлов и модов, асинхронное чтение, точки маршрутов из
   `Waypoints.res`, x86/x64/ARM64-сверка и два известных исключения.
+- `../Silent-Storm-Reconstruction/diagnostics/NATIVE-MAP-POLYGONS-LINUX.md` —
+  оригинальный `PolyUtils.cpp` на Linux, тест отсечения полигонов,
+  x86/x64/ARM64-паритет, исправление UB и конфликта `Time.h` с C runtime;
+  перечень ещё не связанных зависимостей полного `BuildMap`.
 - `../Silent-Storm-Reconstruction/STAGE0-BASELINE.md` — зафиксированный x86
   эталон, данные, сборка, контрольные сценарии и известные ограничения.
 - `../Silent-Storm-Reconstruction/PORTING-WINX64.md` — журнал x64-проверок

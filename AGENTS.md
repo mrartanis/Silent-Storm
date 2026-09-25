@@ -82,6 +82,9 @@ Lua-сценарии, ИИ, бой, взрывы, разрушения и мар
   сборка и исполнение оригинального Lua-рантайма и стартовых скриптов на
   Linux x64/ARM64. Это не перенос игровых Lua-привязок, игрового цикла
   или сохранения Lua-состояния; этап 2 остаётся открытым.
+- `../Silent-Storm-Reconstruction/diagnostics/NATIVE-STREAMS-LINUX.md` —
+  сборка штатных потоков `FileIO`, тест Unicode-пути и чтение оригинального
+  `Fonts.res` на Windows x64, Linux x64/ARM64. Сериализатор ещё не перенесён.
 - `../Silent-Storm-Reconstruction/STAGE0-BASELINE.md` — зафиксированный x86
   эталон, данные, сборка, контрольные сценарии и известные ограничения.
 - `../Silent-Storm-Reconstruction/PORTING-WINX64.md` — журнал x64-проверок

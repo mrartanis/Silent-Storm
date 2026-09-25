@@ -165,6 +165,8 @@ $cmake='G:\SS\lab\tools\VS2022\Common7\IDE\CommonExtensions\Microsoft\CMake\CMak
 Для конфигурации с нуля и архива воспроизводимой сборки используйте
 `diagnostics/Build-Lab.ps1 -Architecture x64 -BuildId <новое-имя> -LabRoot G:\SS\lab -ArchiveRoot G:\SS\lab\builds -BuildDirectory G:\SS\lab\build-x64-stage2 -NativeMedia -FFmpegRoot <корень FFmpeg> -MiniaudioIncludeDir <каталог miniaudio>`.
 Архив Win32 создавайте только для конкретного сравнения с x86-оракулом.
+`New-LabRun.ps1` для нативного SFX исключает `fmod.dll` уже при копировании
+baseline; проверяйте его отсутствие в новом запуске.
 Скрипт требует чистый рабочий репозиторий и сам создаёт архив EXE/PDB.
 По умолчанию он собирает в 12 потоков (не больше числа логических ядер);
 для другого лимита задайте `-BuildJobs N`. На проверенном Linux-хосте

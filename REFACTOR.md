@@ -717,8 +717,8 @@ ASan/UBSan и Linux Clang x64 57/57. Чистый x64-архив
 `TerrainInfo`, сеть маршрутов `aiGrid` и сам `CHeightLayers` ещё не входят
 в исполняемый Linux-контур, поэтому полноценную высотную карту миссии там
 не заявляем. `TerrainInfo.cpp` уже проходит строгую компиляцию на Linux
-x64/ARM64 и Clang x64, но Linux-линковка `CTerrainInfoHolder` упирается в
-vtable записей материала/брони и регистрацию DBFormat. Штатные
+x64/ARM64 и Clang x64; его линковка и исполнение с типизированной базой
+на Linux ещё не проверены. Штатные
 `ADOImport/BasicDB.cpp`, 18 файлов DBFormat и `BuildMapLinks` теперь не
 только компилируются, но и загружают оригинальный `game.db` на Linux
 x64/ARM64/Clang: все 155 таблиц дают то же число записей, а 3498 значений
@@ -734,6 +734,9 @@ Linux GCC x64/ARM64 — 60/60 под санитайзерами, Clang — 60/60
 Чистый Windows x64-архив `stage2-terrain-data-compile-20260925-01` из
 `bf019b3` загрузил `DB_OLD` в новом LabRun и завершился без дампа;
 Linux-линковку `TerrainInfo` этот прогон не подтверждает.
+Чистый Windows x64-архив `stage2-native-game-db-20260925-01` из `3e044c2`
+без FMOD загрузил `DB_OLD` до `LOAD-SLOT-DONE` в новом LabRun
+`stage2-native-game-db-clean-01`, завершился по `quit` без дампа.
 Ранее использованный `D:\SS-lab` удалён пользователем; текущие сборки и
 артефакты размещаются только на G:.
 

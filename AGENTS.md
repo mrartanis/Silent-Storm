@@ -139,6 +139,10 @@ Lua-сценарии, ИИ, бой, взрывы, разрушения и мар
   `NativeMapDatabaseTests`: все типизированные шаблоны и варианты карт из
   оригинального `game.db`, их игровые поля и связи; x86/x64/ARM64-сверка.
   Тест не заменяет исполнение `BuildMap` на данных миссии.
+- `../Silent-Storm-Reconstruction/diagnostics/NATIVE-MAP-BUILD-LINUX.md` —
+  Linux-сборка оригинального `MapBuild.cpp` и связанный тест его
+  `ConvertFlags` на реальной базе; дальнейший рубеж — игровой загрузчик
+  ресурсов и полный `BuildMap` миссии.
 - `../Silent-Storm-Reconstruction/STAGE0-BASELINE.md` — зафиксированный x86
   эталон, данные, сборка, контрольные сценарии и известные ограничения.
 - `../Silent-Storm-Reconstruction/PORTING-WINX64.md` — журнал x64-проверок

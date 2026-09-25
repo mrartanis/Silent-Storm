@@ -797,6 +797,16 @@ x86/x64 и Linux GCC x64/ARM64/Clang x64 совпали по семантиче�
 синтетического тайла, но сам `BuildMap` с геометрией и маршрутами миссии
 на Linux пока не исполнялся. Команды и пределы проверки — в
 `../Silent-Storm-Reconstruction/diagnostics/NATIVE-MAP-DB-LINUX.md`.
+Оригинальный `MapBuild.cpp` теперь компилируется на Linux GCC x64/ARM64 и
+Clang x64. Связанный `NativeMapFlagsTests` вызывает его игровой
+`ConvertFlags` после загрузки оригинального `game.db`: во всех пяти
+конфигурациях, включая Windows x86/x64, получены `Day=6`, `Night=5`,
+флаги `5,6`. Полные наборы: Windows x64 94/94, Linux по 68/68.
+Глобальные загрузчики путевых точек и групп перенесены из `MapBuild.cpp`
+к их реализациям в `aiWaypoint.cpp`; заглушек для них нет. `BuildMap`
+целиком ещё не связан с Linux-ресурсами и не исполнен на миссии, поэтому
+этап 2 открыт. Команды и следующий рубеж — в
+`../Silent-Storm-Reconstruction/diagnostics/NATIVE-MAP-BUILD-LINUX.md`.
 Чистый Windows x64-архив `stage2-terrain-data-compile-20260925-01` из
 `bf019b3` загрузил `DB_OLD` в новом LabRun и завершился без дампа;
 Linux-линковку `TerrainInfo` подтверждает отдельный тест, а не этот прогон.

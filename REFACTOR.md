@@ -652,6 +652,8 @@ Windows x64 прошёл 84/84 CTest, Linux x64 и ARM64 — по 52/52 под
 ASan/UBSan. Это ещё не порт
 `CStructureSaver`, пакетной объектной загрузки или игрового цикла; см.
 `../Silent-Storm-Reconstruction/diagnostics/NATIVE-STREAMS-LINUX.md`.
+Чистый x64-архив `stage2-native-streams-20260925-01` загрузил слот
+`TOPWRITE_NEW` и штатно вышел без дампа; Linux-игра этим не проверена.
 
 Граница этапа: Linux x86-64 и ARM64 здесь проходят headless-тесты ядра и
 чтения оригинальных данных, а не игровой процесс. Windows x64 остаётся

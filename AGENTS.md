@@ -118,9 +118,13 @@ Lua-сценарии, ИИ, бой, взрывы, разрушения и мар
   переносом полного графа мира.
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-TERRAIN-DATA-LINUX.md` —
   текущая граница данных рельефа: оригинальный `TerrainInfo.cpp` компилируется
-  на Linux x64/ARM64, а Windows-тест проверяет регионы `DG`. Linux-исполнение
-  ждёт штатный типизированный рантайм `BasicDB` и классы DBFormat; не
-  считайте этот compile-gate загрузкой карты миссии.
+  на Linux x64/ARM64, а Windows-тест проверяет регионы `DG`. Типизированный
+  `BasicDB` и DBFormat уже загружают `game.db` на Linux, но сам `TerrainInfo`
+  там ещё не выполняется; не считайте этот compile-gate загрузкой карты миссии.
+- `../Silent-Storm-Reconstruction/diagnostics/NATIVE-GAME-DB-LINUX.md` —
+  загрузка оригинального `game.db` через игровые `BasicDB`/DBFormat на Linux
+  x64/ARM64, сверка всех 155 таблиц и значений материалов, команды тестов,
+  диагностика оставшихся ссылок и граница относительно полного игрового цикла.
 - `../Silent-Storm-Reconstruction/STAGE0-BASELINE.md` — зафиксированный x86
   эталон, данные, сборка, контрольные сценарии и известные ограничения.
 - `../Silent-Storm-Reconstruction/PORTING-WINX64.md` — журнал x64-проверок

@@ -718,15 +718,18 @@ ASan/UBSan и Linux Clang x64 57/57. Чистый x64-архив
 в исполняемый Linux-контур, поэтому полноценную высотную карту миссии там
 не заявляем. `TerrainInfo.cpp` уже проходит строгую компиляцию на Linux
 x64/ARM64 и Clang x64, но Linux-линковка `CTerrainInfoHolder` упирается в
-vtable записей материала/брони и регистрацию DBFormat. Штатный
-`ADOImport/BasicDB.cpp` уже компилируется на Linux x64/ARM64/Clang:
-игровое чтение колоночного `game.db` отделено от редакторского SQL/ADO,
-но исполняемый Linux-тест загрузки базы ещё требует настоящих классов
-DBFormat и `BuildMapLinks`. Windows x64-тест
+vtable записей материала/брони и регистрацию DBFormat. Штатные
+`ADOImport/BasicDB.cpp`, 18 файлов DBFormat и `BuildMapLinks` теперь не
+только компилируются, но и загружают оригинальный `game.db` на Linux
+x64/ARM64/Clang: все 155 таблиц дают то же число записей, а 3498 значений
+`SpecFactor` совпадают побитно. SQL/ADO остаётся редакторским Windows-путём;
+загрузка базы сама по себе ещё не означает запуск миссии или `TerrainInfo`
+на Linux. Детали: `../Silent-Storm-Reconstruction/diagnostics/NATIVE-GAME-DB-LINUX.md`.
+Windows x64-тест
 копирования карты и регионов `DG` прошёл и дал те же значения на
 восстановленной x86-сборке; полная регрессия Windows x64 — 89/89,
-Linux GCC x64/ARM64 — 58/58 под санитайзерами, Clang — 58/58. Это
-compile-gate, а не закрытый перенос загрузчика. См.
+Linux GCC x64/ARM64 — 60/60 под санитайзерами, Clang — 60/60. Для
+`TerrainInfo` это по-прежнему compile-gate, а не закрытый перенос карты. См.
 `../Silent-Storm-Reconstruction/diagnostics/NATIVE-TERRAIN-DATA-LINUX.md`.
 Чистый Windows x64-архив `stage2-terrain-data-compile-20260925-01` из
 `bf019b3` загрузил `DB_OLD` в новом LabRun и завершился без дампа;

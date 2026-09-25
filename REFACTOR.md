@@ -667,6 +667,9 @@ ARM64/QEMU прошли по 55/55 CTest под ASan/UBSan, Windows x64 — 85/8
 кодеки и классы игрового мира в Linux-цель ещё не включены, поэтому
 полный сейв миссии там не загружается; см.
 `../Silent-Storm-Reconstruction/diagnostics/NATIVE-STRUCTURE-LINUX.md`.
+Чистый Windows x64-архив `stage2-native-structure-20260925-01` загрузил
+`TOPWRITE_NEW` и штатно вышел без дампа; это регрессия Windows-игры,
+не подтверждение Linux-миссии.
 
 Граница этапа: Linux x86-64 и ARM64 здесь проходят headless-тесты ядра и
 чтения оригинальных данных, а не игровой процесс. Windows x64 остаётся

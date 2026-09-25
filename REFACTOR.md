@@ -824,6 +824,10 @@ x86-эталоне. Они зафиксированы как ограничен�
 Команды — в `../Silent-Storm-Reconstruction/diagnostics/NATIVE-RESOURCE-LOADER-LINUX.md`.
 Полные наборы после этого переноса: Windows x64 97/97, Linux GCC
 x64/ARM64 и Clang x64 по 71/71. GCC x64/ARM64 запускались с ASan/UBSan.
+Чистый x64-архив `stage2-resource-loader-20260925-01` из `4d59560`
+загрузил `DB_OLD` до `LOAD-SLOT-DONE` в новом LabRun и завершился по
+`quit` без дампа и FMOD DLL. Хеш `Game.exe` архива и запуска совпал:
+`50045E9F1EFD5B9F0087A8FED7CE5DD2AF543AC248ACCB18B05C652CBC200AB2`.
 Чистый Windows x64-архив `stage2-terrain-data-compile-20260925-01` из
 `bf019b3` загрузил `DB_OLD` в новом LabRun и завершился без дампа;
 Linux-линковку `TerrainInfo` подтверждает отдельный тест, а не этот прогон.

@@ -125,6 +125,10 @@ Lua-сценарии, ИИ, бой, взрывы, разрушения и мар
   тест штатного `CHeightLayers` (поле высот, этажи и сериализация) на
   Windows/Linux x64/ARM64. Ветка `ComputeLayers` с сетью путей `aiGrid`
   пока не связана на Linux; не считайте тест кэша проверкой маршрутов миссии.
+- `../Silent-Storm-Reconstruction/diagnostics/NATIVE-AI-GRID-LINUX.md` —
+  граница переноса оригинального `aiGrid.cpp`: сборка на Linux x64/ARM64,
+  нерешённые зависимости линковки для полного `CPathNetwork`, исправление
+  UB в `CPool` и тест переходов между блоками.
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-GAME-DB-LINUX.md` —
   загрузка оригинального `game.db` через игровые `BasicDB`/DBFormat на Linux
   x64/ARM64, сверка всех 155 таблиц и значений материалов, команды тестов,

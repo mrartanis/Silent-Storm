@@ -627,7 +627,10 @@ CPU-превью настоящего редактора в x86/x64.
 `Misc/Basic2.cpp` и `Misc/EventsBase.cpp` (базовая система объектов, ссылок и
 типизированных событий) включены в Linux x64 и ARM64 сборки с тестом
 жизненного цикла и доставки событий под ASan/UBSan; тот же тест проходит
-на Windows x64. Это необходимая часть ядра, но не headless-запуск игры.
+на Windows x64. Windows x64 прошёл 81/81 тестов, Linux x64 и ARM64/QEMU —
+по 48/48. Чистый архив `stage2-object-events-20260925-01` загрузил
+миссионный сейв и штатно завершился без дампа. Это необходимая часть ядра,
+но не headless-запуск игры на Linux.
 Подробности — в
 `../Silent-Storm-Reconstruction/diagnostics/NATIVE-OBJECT-CORE-LINUX.md`.
 

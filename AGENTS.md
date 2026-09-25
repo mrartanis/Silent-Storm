@@ -108,6 +108,10 @@ Lua-сценарии, ИИ, бой, взрывы, разрушения и мар
   сборка оригинальной математики камеры/границ `Main/Transform.cpp` на Linux
   x64/ARM64, Windows x64 и дополнительная численная сверка с x86. Рендерер,
   классы мира и игровой цикл на Linux этим ещё не перенесены.
+- `../Silent-Storm-Reconstruction/diagnostics/NATIVE-TERRAIN-SPLINE-LINUX.md` —
+  используемый игрой сплайн сглаживания высоты `Main/BetaSpline.cpp`, его
+  сборка на Windows/Linux x64/ARM64 и численная сверка с x86. Полный кеш
+  этажей и маршрутизатор мира на Linux пока не перенесены.
 - `../Silent-Storm-Reconstruction/STAGE0-BASELINE.md` — зафиксированный x86
   эталон, данные, сборка, контрольные сценарии и известные ограничения.
 - `../Silent-Storm-Reconstruction/PORTING-WINX64.md` — журнал x64-проверок

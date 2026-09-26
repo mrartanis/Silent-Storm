@@ -1328,6 +1328,12 @@ SHA-256 `Game.exe` —
 под ASan/UBSan. Это закрывает загрузку контейнеров исходного набора,
 но не смысловое декодирование каждого типа и не Linux-миссию. См.
 `../Silent-Storm-Reconstruction/diagnostics/NATIVE-RESOURCE-CORPUS-LINUX.md`.
+Чистый x64 native-media архив коммита `20e5a321` создан в
+`G:\SS\lab\builds\stage2-resource-corpus-20260926-01` (16 потоков);
+SHA-256 `Game.exe` —
+`E4853B18445F3CA4C06E3B6B0AAFA47469171A7A224C43D69495F0DE62320A4B`.
+В архиве нет FMOD DLL, в EXE нет импортов `fmod.dll`/`FSOUND_`.
+Отдельный игровой smoke этого архива не заявляется.
 
 Исправление ширины адреса в игровом воксельном взрыве: хеш
 `SVoxelObjectKey` больше не приводит указатель к 32-битному `int`, но

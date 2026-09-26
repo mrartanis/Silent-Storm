@@ -151,6 +151,11 @@ Lua-сценарии, ИИ, бой, взрывы, разрушения и мар
   оригинальный `PolyUtils.cpp` на Linux, тест отсечения полигонов,
   x86/x64/ARM64-паритет, исправление UB и конфликта `Time.h` с C runtime;
   перечень ещё не связанных зависимостей полного `BuildMap`.
+- `../Silent-Storm-Reconstruction/diagnostics/NATIVE-BUILDING-TERRAIN-LINUX.md` —
+  оригинальные сетка разрушений, загрузчики зданий и рельефа на Linux;
+  прямой тест взрыва и ограниченная сверка `game.db`/`Buildings.res`/
+  `Terrain.res` на Windows x86/x64 и Linux x64/ARM64. Полный `BuildMap`
+  миссии этим ещё не подтверждён.
 - `../Silent-Storm-Reconstruction/STAGE0-BASELINE.md` — зафиксированный x86
   эталон, данные, сборка, контрольные сценарии и известные ограничения.
 - `../Silent-Storm-Reconstruction/PORTING-WINX64.md` — журнал x64-проверок

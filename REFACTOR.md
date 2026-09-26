@@ -847,6 +847,19 @@ Windows x64 build, включая `Game.exe`, и 98/98 тестов прошли
 Следовательно, архивный игровой smoke нужно повторить в работающем
 D3D-сеансе; текущий отказ не является доказательством регрессии
 `PolyUtils.cpp`.
+Следующим пакетом на Linux подключены оригинальные `BuildingGrid.cpp`,
+`BuildingSchema.cpp`, `RodJunction.cpp`, `rod.cpp`, `BuildingInfo.cpp` и
+`MapBuildTerrain.cpp`. Прямой тест сетки зданий выявил исходное затенение
+координаты соседнего вокселя в `UpdatePart`: на GCC было 6 обновлённых
+частей против 8 на MSVC. После исправления Windows x86/x64 и Linux
+GCC x64/ARM64/Clang x64 дают 8 частей, 12 разрушенных взрывом ячеек
+и одинаковый хеш HP `776DA3697E4E585D`. Загрузчик на настоящих
+`game.db`, `Buildings.res` и `Terrain.res` сверяет первые 8
+нетривиальных вариантов из 2012 совпадающих ресурсов; общий хеш
+`E28FBA0B16F6B77F`. Полные наборы: Windows x64 100/100, Linux по
+74/74. Это проверка основных составляющих, а не полный `BuildMap`
+миссии: ещё требуются компоненты стен и состава здания. Подробнее —
+`../Silent-Storm-Reconstruction/diagnostics/NATIVE-BUILDING-TERRAIN-LINUX.md`.
 Чистый Windows x64-архив `stage2-terrain-data-compile-20260925-01` из
 `bf019b3` загрузил `DB_OLD` в новом LabRun и завершился без дампа;
 Linux-линковку `TerrainInfo` подтверждает отдельный тест, а не этот прогон.

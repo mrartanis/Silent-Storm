@@ -903,6 +903,10 @@ x64 и ARM64. Это одна реально используемая привя
 Полная сборка и CTest после пакета: Windows x64 — 104/104, Linux GCC x64 и
 ARM64/QEMU с ASan/UBSan — по 78/78. Запуск обновлённой игры отдельно не подтверждён из-за
 текущего D3D-сеанса, который не создаёт устройство и для старого архива.
+Чистый native-media x64-архив `stage2-script-corpus-20260926-01` собран из
+`7d6a9d2` в 16 потоков; SHA-256 `Game.exe` —
+`DB66DD392B8F795E59FF955FB7E7DF0F5EAEC52C4B804B56724A9ED8A1B93BD9`.
+FMOD DLL и импорта `FSOUND_`/`fmod.dll` нет; игровой runtime-smoke ещё открыт.
 После регистрации трёх сценариев полный Windows x64 build и CTest прошли
 103/103; Linux GCC x64/ARM64 и Clang x64 — 77/77, GCC с ASan/UBSan.
 Windows x86 прошёл все четыре теста этого пакета. ARM64-вариант с

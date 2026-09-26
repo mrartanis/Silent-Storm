@@ -107,6 +107,11 @@ Lua-сценарии, ИИ, бой, взрывы, разрушения и мар
   арифметика игровых битовых сигнатур зон/улик и граница теста: индексы
   31/32/63/64 проверены на трёх архитектурах, но Lua-ветвление миссии
   на Linux ещё не исполнялось.
+- `../Silent-Storm-Reconstruction/diagnostics/NATIVE-SCENE-CORE-SPLIT.md` —
+  подлинные CPU-методы `IPart`/комбайнера и регистрация `CNonePart`
+  вынесены из D3D-модулей; одинаковые байты сериализации на Windows,
+  Linux x64 и ARM64. До headless-миссии остаётся владеющий сценой
+  `CLightGroup`, не заменяйте его фиктивным cast.
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-STRUCTURE-LINUX.md` —
   уже перенесённый на Linux x64/ARM64 штатный `CStructureSaver`, объектный
   граф, packed-кодек, сохранение Lua-состояния и геометрические поля.

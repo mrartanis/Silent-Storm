@@ -1391,6 +1391,25 @@ SHA-256 `Game.exe` —
 В архиве нет FMOD DLL, в EXE нет импортов `fmod.dll`/`FSOUND_`.
 Отдельный игровой smoke этого архива не заявляется.
 
+Следующий пакет начал настоящее отделение состояния сцены от DirectX:
+оригинальные методы `IPart`, `CPerMaterialCombiner` и
+`CAutomaticCombiner` вынесены из D3D-зависимого `GCombiner.cpp` в общий
+CPU-модуль, а подлинный `CNonePart` регистрируется отдельным модулем.
+Проверены добавление/сортировка/удаление частей и игровой round-trip:
+для двух комбайнеров 144 байта с FNV `66A3784C237E2756`, для
+`CNonePart` 90 байт с FNV `BE951C13732CB2A0` на Windows x64, Linux
+x86-64 и ARM64/QEMU. Полная матрица: Windows 126/126, Linux x86-64 и
+ARM64/QEMU по 102/102 под ASan/UBSan. Диагностическая линковка всего
+Linux-графа теперь имеет один уникальный неразрешённый символ — реальный
+`CLightGroup`, который владеет `CGScene`; Linux-миссия ещё не исполняется.
+См. `../Silent-Storm-Reconstruction/diagnostics/NATIVE-SCENE-CORE-SPLIT.md`.
+Чистый native-media x64-архив коммита `1f53f1e` создан в
+`G:\SS\lab\builds\stage2-scene-core-split-20260926-01` (16 потоков);
+SHA-256 `Game.exe` —
+`9AD040F0E177EEEEDE0DF01C1D35DC3F3D8E30791B3674F1BD2C52E95F714354`.
+В архиве нет FMOD DLL, в EXE нет импортов `fmod.dll`/`FSOUND_`.
+Отдельный игровой smoke этого архива не заявляется.
+
 Исправление ширины адреса в игровом воксельном взрыве: хеш
 `SVoxelObjectKey` больше не приводит указатель к 32-битному `int`, но
 сохраняет прежний XOR для 32-битного адреса. Новый тест проверяет, что

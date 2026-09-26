@@ -138,6 +138,10 @@ Lua-сценарии, ИИ, бой, взрывы, разрушения и мар
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-COMMAND-BRIDGE-LINUX.md` —
   общий Windows/Linux-мост `CCmdSetCommand`, исполняемый тест пропускаемой
   и обязательной команд на x86/x64/ARM64, а также граница до `CUnitServer`.
+- `../Silent-Storm-Reconstruction/diagnostics/NATIVE-UNIT-SERVER-LINUX.md` —
+  полная Linux-компиляция исходного `CUnitServer` на x64/ARM64 и текущая
+  граница линковки с миром, состояниями юнита и Lua; это ещё не работающий
+  Linux-AI. Команды сборки и тестов приведены в этом документе.
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-GAME-DB-LINUX.md` —
   загрузка оригинального `game.db` через игровые `BasicDB`/DBFormat на Linux
   x64/ARM64, сверка всех 155 таблиц и значений материалов, команды тестов,

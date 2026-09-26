@@ -964,6 +964,22 @@ SHA-256 `Game.exe` —
 `7C0CE667D88638A4A950A23D713E71825A15F9964703977AD1FB12EE3730050E`.
 FMOD DLL и импорта `fmod.dll`/`FSOUND_` нет. Игровой smoke пока не
 подтверждён из-за той же D3D-сессии, которая не запускает старый архив.
+Следующий пакет переносит для Linux полную исходную единицу трансляции
+`Main/wUnitServer.cpp` как `s2_game_unit_server`. GCC собрал её на x64 и
+ARM64 без замен игровых методов; Windows x64 собрал `Game.exe` и прошёл
+109/109 тестов, Linux x64 и ARM64/QEMU — по 81/81 под ASan/UBSan.
+Это пока только граница
+компиляции: связать `CUnitServer` с `CAILogic` в исполняемую Linux-миссию
+мешают исходные `CDumbUnitServer`, состояния юнита, `CWorld`, `CPlayer`,
+`CCannon`, анимация, RPG/маршруты и Lua-привязки. Проверки поведения AI
+или боя на Linux из этой сборки не следуют. См.
+`../Silent-Storm-Reconstruction/diagnostics/NATIVE-UNIT-SERVER-LINUX.md`.
+Чистый native-media Windows x64-архив `stage2-unit-server-20260926-01`
+собран в 16 потоков из `165a5db56cce8d29e5efacb925129e4b098d8c31`;
+SHA-256 `Game.exe` —
+`D878974AF8624E1CE5E5D0D4AE2D1BD57E0EF407F8BFA8325BF97453302B3D5C`.
+FMOD DLL и импорта `fmod.dll`/`FSOUND_` нет. Игровой smoke не заявлен:
+удалённая D3D-сессия не запускает даже прежний заведомо рабочий архив.
 Чистый native-media Windows x64-архив `stage2-ai-logic-20260926-01`
 собран из `967e43e881290a87797e58c2d99f182e16b6bf50` в 16 потоков;
 SHA-256 `Game.exe` —

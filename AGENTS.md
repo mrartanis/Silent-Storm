@@ -149,6 +149,10 @@ Lua-сценарии, ИИ, бой, взрывы, разрушения и мар
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-ANIMATION-RUNTIME-LINUX.md` —
   штатные скелетная/путевая анимация, частицы и высотный сэмплер на Linux,
   исполняемый тест интерполяции пути и оставшаяся граница до живого мира.
+- `../Silent-Storm-Reconstruction/diagnostics/NATIVE-CONSOLE-RPG-LINUX.md` —
+  Linux-путь пользовательского `config.cfg`, консольные переменные и часть
+  настоящих RPG-правил (урон, предметы, юнит, перки); тесты и граница до
+  живой миссии описаны там.
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-GAME-DB-LINUX.md` —
   загрузка оригинального `game.db` через игровые `BasicDB`/DBFormat на Linux
   x64/ARM64, сверка всех 155 таблиц и значений материалов, команды тестов,

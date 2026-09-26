@@ -1000,6 +1000,25 @@ ASan/UBSan.
 матрица Windows x64 прошла 110/110, Linux GCC x64/ARM64 — по 82/82
 под ASan/UBSan. Остальные новые анимационные классы пока не исполняются
 в Linux-тесте.
+Следующий пакет добавляет на Linux оригинальный `MiscDll/Commands.cpp`,
+хостовый путь `config.cfg` вне ресурсов через `PortableUserPaths` и
+исходные `RPGUnit.cpp`, `RPGItemSet.cpp`, `RPGAttackMech.cpp`,
+`rpgGlobal.cpp`, `rpgPerk.cpp`. Новые тесты исполняют сохранение и загрузку
+консольной переменной и Unicode-профиля, пороги боевого отбрасывания/
+рикошета и начисление очков перков. Линковочная проба `CAILogic` сократила
+число уникальных отсутствующих символов с 72 до 47, но это ещё не
+исполняемый Linux-мир или полное дерево перков миссии. См.
+`../Silent-Storm-Reconstruction/diagnostics/NATIVE-CONSOLE-RPG-LINUX.md`.
+Windows x64 собрал `Game.exe` и прошёл 113/113 тестов.
+Linux GCC x64 и ARM64/QEMU собрали все цели и прошли по 85/85 под
+ASan/UBSan. Боевые пороги и последовательность очков перков совпали
+на восстановленном Windows x86, Windows x64 и двух Linux-архитектурах.
+Чистый native-media Windows x64-архив `stage2-console-rpg-20260926-01`
+собран в 16 потоков из `52c270952c5ca5988edaad069c2a0947cd8f31d1`;
+SHA-256 `Game.exe` —
+`67B516745F3524E95BD84D1BDB153C948FE1FFE690E9E10B8485D18BBE063612`.
+FMOD DLL и импорта `fmod.dll`/`FSOUND_` нет; игровой smoke в текущей
+удалённой D3D-сессии не заявлен.
 Чистый native-media Windows x64-архив `stage2-animation-runtime-20260926-01`
 собран в 16 потоков из `ef23a32996d7a408e83e6bc1420a84cc7354d4c3`;
 SHA-256 `Game.exe` —

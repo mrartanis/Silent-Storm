@@ -986,6 +986,26 @@ ARM64 без замен игровых методов; Windows x64 собрал 
 Полная Windows x64 сборка и CTest после этого пакета прошли 109/109;
 Linux GCC x64 и ARM64/QEMU собрали все цели и прошли по 81/81 под
 ASan/UBSan.
+Следующий пакет переносит на Linux исходные семь единиц трансляции
+анимационного рантайма (`GAnimBase`, `GAnimFormat`, `GAnimation`,
+`GSkeleton`, `GAnimTerrain`, `GAnimPath`, `GAnimParticles`) и расчёт
+высот `aiHeight`. Новый исполняемый `NativeAnimationPathTests` проверяет
+реальный `CPathInterpolator`; прямой путь даёт `2.000000`, сглаженный
+изгиб `1.695598`, 65 точек на Windows x64 и Linux GCC x64/ARM64.
+Линковочная проба настоящего `CAILogic` сократила число уникальных
+отсутствующих символов со 122 до 72, но полноценный мир/ИИ пока не
+исполняется. См.
+`../Silent-Storm-Reconstruction/diagnostics/NATIVE-ANIMATION-RUNTIME-LINUX.md`.
+Восстановленный Windows x86 дал те же числа в точечном тесте; полная
+матрица Windows x64 прошла 110/110, Linux GCC x64/ARM64 — по 82/82
+под ASan/UBSan. Остальные новые анимационные классы пока не исполняются
+в Linux-тесте.
+Чистый native-media Windows x64-архив `stage2-animation-runtime-20260926-01`
+собран в 16 потоков из `ef23a32996d7a408e83e6bc1420a84cc7354d4c3`;
+SHA-256 `Game.exe` —
+`450C3562C3FACF910F506D517931657F5B96324DD90485E165E804CDA4FF968F`.
+FMOD DLL и импорта `fmod.dll`/`FSOUND_` нет; игровой smoke в текущей
+удалённой D3D-сессии не заявлен.
 Чистый native-media Windows x64-архив `stage2-unit-execution-20260926-01`
 собран в 16 потоков из `9328b761dfb88ec77a2697935233051231733fea`;
 SHA-256 `Game.exe` —

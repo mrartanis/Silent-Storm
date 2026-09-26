@@ -1030,6 +1030,21 @@ ARM64/QEMU. Пробная линковка
 Linux-мир и не готовая игра. Подробности — в
 `../Silent-Storm-Reconstruction/diagnostics/NATIVE-WORLD-LINUX.md`.
 Windows x64 `RelWithDebInfo` собрал `Game.exe` и прошёл 113/113 CTest.
+Следующий пакет этапа 2 компилирует на Linux 12 оригинальных модулей
+маршрутов, командира, команд, состояния, юнита и событий ИИ как
+`s2_game_ai_routes`. Пробная линковка реального теста `CAILogic` пока
+не удаётся, но после добавления зависимостей число уникальных
+отсутствующих символов снизилось со 191 до 148. Это ещё не игровой ход
+ИИ на Linux; следующий рубеж — карта, действия и миссия. См.
+`../Silent-Storm-Reconstruction/diagnostics/NATIVE-AI-ROUTES-LINUX.md`.
+Windows x64 `RelWithDebInfo` собрал `Game.exe` и прошёл 113/113 тестов;
+Linux x86-64 и ARM64/QEMU под ASan/UBSan прошли по 85/85.
+Чистый native-media x64-архив `stage2-ai-routes-20260926-01` собран в
+16 потоков из `38e7b8f5d45b91b0863b1506d66b873a0ef90139`;
+SHA-256 `Game.exe` —
+`ECAA195AE3E7D3F236B76C0F8FEC5CEDCC45A6B32989358E1BA4559A4433B4E7`.
+FMOD DLL и импорта `fmod.dll`/`FSOUND_` нет; игровой smoke в текущей
+удалённой D3D-сессии не заявлен.
 Чистый native-media Windows x64-архив `stage2-animation-runtime-20260926-01`
 собран в 16 потоков из `ef23a32996d7a408e83e6bc1420a84cc7354d4c3`;
 SHA-256 `Game.exe` —

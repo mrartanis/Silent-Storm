@@ -974,6 +974,24 @@ ARM64 без замен игровых методов; Windows x64 собрал 
 `CCannon`, анимация, RPG/маршруты и Lua-привязки. Проверки поведения AI
 или боя на Linux из этой сборки не следуют. См.
 `../Silent-Storm-Reconstruction/diagnostics/NATIVE-UNIT-SERVER-LINUX.md`.
+Следующий связанный пакет собирает на Linux x64/ARM64 исходные
+`wDumbUnit.cpp`, `wUnitStates.cpp` и `wAnimation.cpp` — основу юнита,
+его состояния и аниматор. Исправлены только переносимость заголовков,
+генератор случайных чисел на Linux и несовместимые с GCC неявные
+преобразования/временные ссылки. Пробная линковка с настоящим
+`CAILogic` всё ещё показывает зависимости от мира, RPG, Lua, UI,
+звука и геометрической анимации; игра на Linux и паритет поведения
+этим не доказаны. См.
+`../Silent-Storm-Reconstruction/diagnostics/NATIVE-UNIT-EXECUTION-LINUX.md`.
+Полная Windows x64 сборка и CTest после этого пакета прошли 109/109;
+Linux GCC x64 и ARM64/QEMU собрали все цели и прошли по 81/81 под
+ASan/UBSan.
+Чистый native-media Windows x64-архив `stage2-unit-execution-20260926-01`
+собран в 16 потоков из `9328b761dfb88ec77a2697935233051231733fea`;
+SHA-256 `Game.exe` —
+`8622B85AB3DF53D21908A74C0DDBA379F0691E360A14CAFF6E210E2F793B1F29`.
+FMOD DLL и импорта `fmod.dll`/`FSOUND_` нет; игровой smoke в текущей
+удалённой D3D-сессии не заявлен.
 Чистый native-media Windows x64-архив `stage2-unit-server-20260926-01`
 собран в 16 потоков из `165a5db56cce8d29e5efacb925129e4b098d8c31`;
 SHA-256 `Game.exe` —

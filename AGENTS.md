@@ -153,6 +153,10 @@ Lua-сценарии, ИИ, бой, взрывы, разрушения и мар
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-WORLD-EVENTS-SCENARIO-LINUX.md` —
   пакет игровых событий, ракет и графа сценария с Lua-мостом, проверенная
   матрица Windows/Linux и открытые UI/мировые зависимости.
+- `../Silent-Storm-Reconstruction/diagnostics/NATIVE-WORLD-GAMEPLAY-LINUX.md` —
+  Linux-компиляция игровых зданий, рельефа, инвентаря, диалогов,
+  последствий взрывов, RPG-зданий и переносимого таймера; матрица
+  Windows/Linux и оставшиеся символы диагностической линковки.
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-ANIMATION-RUNTIME-LINUX.md` —
   штатные скелетная/путевая анимация, частицы и высотный сэмплер на Linux,
   исполняемый тест интерполяции пути и оставшаяся граница до живого мира.

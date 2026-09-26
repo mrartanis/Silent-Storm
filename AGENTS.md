@@ -131,6 +131,10 @@ Lua-сценарии, ИИ, бой, взрывы, разрушения и мар
   Linux x64/ARM64, исполняемые тесты AI-журнала и высотной сетки.
   `CheckItemsBreakGlass` подключена из настоящего `wOSBase.cpp`, не из
   заглушки. Здесь же временный UBSan-vptr gate и исправление UB в `CPool`.
+- `../Silent-Storm-Reconstruction/diagnostics/NATIVE-AI-LOGIC-LINUX.md` —
+  Linux-компиляция оригинального `CAILogic`, Windows-тест жизненного цикла
+  и явная граница: `CUnitServer`/мировые команды ещё не связаны с Linux,
+  поэтому живой AI там не заявлен.
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-GAME-DB-LINUX.md` —
   загрузка оригинального `game.db` через игровые `BasicDB`/DBFormat на Linux
   x64/ARM64, сверка всех 155 таблиц и значений материалов, команды тестов,

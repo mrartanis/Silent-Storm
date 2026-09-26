@@ -1313,6 +1313,12 @@ Linux x86-64 и ARM64/QEMU. Для GCC уточнено 32-битное объя
 ASan/UBSan. Это проверка данных/сериализации, не визуального паритета и
 не запуска миссии на Linux. Подробности — в
 `../Silent-Storm-Reconstruction/diagnostics/PORTABLE-RENDER-STATE-WIRE.md`.
+Чистый x64 native-media архив из коммита `b4afa084` создан в
+`G:\SS\lab\builds\stage2-dynamic-ambient-20260926-01` (16 потоков);
+SHA-256 `Game.exe` —
+`807F410F08E7186513BC3FD344A5317A88A6428F2AA6AC04F62DBFC151B45051`.
+В архиве нет FMOD DLL, в `Game.exe` нет импортов `fmod.dll`/`FSOUND_`.
+Отдельный игровой smoke для этого архива не заявляется.
 
 Исправление ширины адреса в игровом воксельном взрыве: хеш
 `SVoxelObjectKey` больше не приводит указатель к 32-битному `int`, но

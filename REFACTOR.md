@@ -1045,6 +1045,23 @@ SHA-256 `Game.exe` —
 `ECAA195AE3E7D3F236B76C0F8FEC5CEDCC45A6B32989358E1BA4559A4433B4E7`.
 FMOD DLL и импорта `fmod.dll`/`FSOUND_` нет; игровой smoke в текущей
 удалённой D3D-сессии не заявлен.
+Следующий пакет этапа 2 добавляет в Linux-сборку игровую `aiMap.cpp` и
+оригинальные `RPGGame.cpp`, `RPGStore.cpp`, `RPGDiplomacy.cpp`,
+`RPGObject.cpp`, `RPGUnitMission.cpp`. В дипломатии исправлен реальный
+UB знакового сдвига для игрока 15; новый тест исходных методов даёт
+одинаковые слова `80008001,00008001` на восстановленном Windows x86,
+Windows x64 и Linux x86-64/ARM64. Полный Windows x64 CTest прошёл
+114/114, Linux x86-64 и ARM64/QEMU под ASan/UBSan — по 86/86. Пробная
+линковка `CAILogic` всё ещё имеет 169 уникальных отсутствующих символов:
+новые модули раскрыли следующие зависимости боя, видимости, Lua и
+объектов мира. Исполняемый мир и игровой паритет на Linux не заявлены.
+См. `../Silent-Storm-Reconstruction/diagnostics/NATIVE-MAP-RPG-LINUX.md`.
+Чистый native-media x64-архив `stage2-map-rpg-20260926-01` собран в
+16 потоков из `07cc29b2f4fbedfa0b487170da4e1fd13fb5afb5`;
+SHA-256 `Game.exe` —
+`43DB83444C25388F109523186E00A8FAF2F47B4C23EC0904EE5061C162469A80`.
+FMOD DLL и импорта `fmod.dll`/`FSOUND_` нет; игровой smoke в текущей
+удалённой D3D-сессии не заявлен.
 Чистый native-media Windows x64-архив `stage2-animation-runtime-20260926-01`
 собран в 16 потоков из `ef23a32996d7a408e83e6bc1420a84cc7354d4c3`;
 SHA-256 `Game.exe` —

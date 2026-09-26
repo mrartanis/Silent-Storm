@@ -160,6 +160,9 @@ Lua-сценарии, ИИ, бой, взрывы, разрушения и мар
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-SCENE-DATA-LINUX.md` —
   общий алгоритм геометрии сцены, AI-геометрия, скелетные данные и
   декали; тест паритета x86/x64/ARM64 и оставшаяся граница линковки.
+- `../Silent-Storm-Reconstruction/diagnostics/NATIVE-SCRIPT-BINDINGS-LINUX.md` —
+  игровые Lua-привязки, скриптовая логика ИИ и точная граница до
+  оконного Lua-UI, FaceGen и полной Linux-миссии.
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-ANIMATION-RUNTIME-LINUX.md` —
   штатные скелетная/путевая анимация, частицы и высотный сэмплер на Linux,
   исполняемый тест интерполяции пути и оставшаяся граница до живого мира.

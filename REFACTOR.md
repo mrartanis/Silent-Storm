@@ -1019,6 +1019,17 @@ SHA-256 `Game.exe` —
 `67B516745F3524E95BD84D1BDB153C948FE1FFE690E9E10B8485D18BBE063612`.
 FMOD DLL и импорта `fmod.dll`/`FSOUND_` нет; игровой smoke в текущей
 удалённой D3D-сессии не заявлен.
+Следующий пакет этапа 2 переносит в Linux-компиляцию оригинальные
+`wMain.cpp`, `wMainMoves.cpp`, `wMainTrace.cpp` и `wUICommands.cpp`.
+Они формируют `s2_game_world`; Linux x86-64 собирает этот архив, а
+полный набор 85/85 тестов проходит под ASan/UBSan на Linux x86-64 и
+ARM64/QEMU. Пробная линковка
+настоящего `NativeAILogicTests` теперь находит прежние методы `CWorld`
+и конструктор UI-команды, но раскрывает ещё 120 уникальных зависимостей
+от миссии, Lua/сценария, звука, terrain и рендера. Это не исполняемый
+Linux-мир и не готовая игра. Подробности — в
+`../Silent-Storm-Reconstruction/diagnostics/NATIVE-WORLD-LINUX.md`.
+Windows x64 `RelWithDebInfo` собрал `Game.exe` и прошёл 113/113 CTest.
 Чистый native-media Windows x64-архив `stage2-animation-runtime-20260926-01`
 собран в 16 потоков из `ef23a32996d7a408e83e6bc1420a84cc7354d4c3`;
 SHA-256 `Game.exe` —

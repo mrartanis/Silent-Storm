@@ -1062,6 +1062,24 @@ SHA-256 `Game.exe` —
 `43DB83444C25388F109523186E00A8FAF2F47B4C23EC0904EE5061C162469A80`.
 FMOD DLL и импорта `fmod.dll`/`FSOUND_` нет; игровой smoke в текущей
 удалённой D3D-сессии не заявлен.
+Следующий пакет этапа 2 компилирует на Linux 14 игровых модулей
+восприятия, инвентаря, боевых решений, реакций и трассировки ИИ как
+`s2_game_ai_perception`. Явно зафиксирована 32-битная `int`-основа
+старых enum и убраны зависимости от Windows-PCH. Новый тест исходного
+`CTracer` проверяет проекцию и расстояние до сферы; результат `1,0,1`
+совпал на восстановленном Windows x86, Windows x64 и Linux x86-64/ARM64.
+Windows x64 собрал `Game.exe` и прошёл 115/115 CTest, Linux x86-64 и
+ARM64/QEMU под ASan/UBSan — по 87/87. Пробная линковка `CAILogic` всё ещё имеет
+232 уникальных отсутствующих символа после раскрытия следующих
+зависимостей действий, видимости, RPG-боя и объектов мира; это не
+исполняемый Linux-ИИ. См.
+`../Silent-Storm-Reconstruction/diagnostics/NATIVE-AI-PERCEPTION-LINUX.md`.
+Чистый native-media x64-архив `stage2-ai-perception-20260926-01` собран
+в 16 потоков из `5e52c739ddfa65dc6b169860bc9095f131438de0`;
+SHA-256 `Game.exe` —
+`C3EC879275AEE7A9CA92889FBCC1E1B6BC9C27AB6D26ECFD83BF83161C143D10`.
+FMOD DLL и импорта `fmod.dll`/`FSOUND_` нет; игровой smoke в текущей
+удалённой D3D-сессии не заявлен.
 Чистый native-media Windows x64-архив `stage2-animation-runtime-20260926-01`
 собран в 16 потоков из `ef23a32996d7a408e83e6bc1420a84cc7354d4c3`;
 SHA-256 `Game.exe` —

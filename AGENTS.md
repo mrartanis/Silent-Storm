@@ -99,6 +99,10 @@ Lua-сценарии, ИИ, бой, взрывы, разрушения и мар
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-STREAMS-LINUX.md` —
   сборка штатных потоков `FileIO`, тест Unicode-пути и чтение оригинального
   `Fonts.res` на Windows x64, Linux x64/ARM64. Продолжение — ниже.
+- `../Silent-Storm-Reconstruction/diagnostics/NATIVE-SAVE-MANAGER-LINUX.md` —
+  файловый слой профилей и слотов Linux: Unicode-имена, запись и загрузка
+  заголовка через штатные потоки, отказ от симлинков. Это ещё не загрузка
+  целой миссии или игровой UI на Linux.
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-STRUCTURE-LINUX.md` —
   уже перенесённый на Linux x64/ARM64 штатный `CStructureSaver`, объектный
   граф, packed-кодек, сохранение Lua-состояния и геометрические поля.

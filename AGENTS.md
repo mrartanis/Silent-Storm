@@ -167,8 +167,9 @@ Lua-сценарии, ИИ, бой, взрывы, разрушения и мар
   проверка используемости оконных Lua-функций по исходной `game.db`,
   разделение регистраций Windows/Linux и текущая граница этапа 2.
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-HEAD-RESOURCES-LINUX.md` —
-  сквозной разбор исходного `Heads.res` на Windows x64/Linux x64/ARM64,
-  числовой контракт и граница до живого `CHeadInfo`.
+  сквозной разбор `Heads.res`, нативные CPU-аниматоры и игровые
+  последовательности из `Sequences.res`/`tree.mma` на Windows x64/Linux
+  x64/ARM64; числовой контракт и граница до живого `CHeadInfo`.
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-VOXEL-HASH-LINUX.md` —
   исправление усечения указателя в хеше игровых объектов взрыва,
   тест ширины адреса, тест настоящего воксельного рендера и открытая

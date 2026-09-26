@@ -907,6 +907,18 @@ ARM64/QEMU с ASan/UBSan — по 78/78. Запуск обновлённой и�
 `7d6a9d2` в 16 потоков; SHA-256 `Game.exe` —
 `DB66DD392B8F795E59FF955FB7E7DF0F5EAEC52C4B804B56724A9ED8A1B93BD9`.
 FMOD DLL и импорта `FSOUND_`/`fmod.dll` нет; игровой runtime-smoke ещё открыт.
+Следующий пакет проверил реально используемые AI-маршруты из Steam-совместимых
+`Units.res` и `Groups.res` через оригинальные `CUnitAIInfoLoader` и
+`CUnitGroupAIInfoLoader`: 169 записей юнитов и 42 группы, все 211
+десериализуются, содержат 211 маршрутов и 561 ссылку на имена точек.
+Семантический хеш `F76E40DB1564FEE0` совпал на Windows x86/x64 и Linux
+GCC x64/ARM64 с ASan/UBSan. Ссылки ведут к `CWaypointName` в `game.db`,
+а не к ID ресурсов `Waypoints.res`; три имени не найдены (46, 66, 441),
+и оригинальный `BuildMap` пропускает такие ссылки. Два `.res` и `game.db`
+совпадают с установленным Steam по SHA-256, поэтому это зафиксировано как
+свойство эталонных данных. Живое выполнение AI-маршрута пока не проверено.
+После пакета полный Windows x64 build/CTest прошёл 105/105; Linux GCC x64 и
+ARM64/QEMU с ASan/UBSan — по 79/79. Windows x86 прошёл точечный тест-эталон.
 После регистрации трёх сценариев полный Windows x64 build и CTest прошли
 103/103; Linux GCC x64/ARM64 и Clang x64 — 77/77, GCC с ASan/UBSan.
 Windows x86 прошёл все четыре теста этого пакета. ARM64-вариант с

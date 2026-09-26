@@ -161,8 +161,11 @@ Lua-сценарии, ИИ, бой, взрывы, разрушения и мар
   общий алгоритм геометрии сцены, AI-геометрия, скелетные данные и
   декали; тест паритета x86/x64/ARM64 и оставшаяся граница линковки.
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-SCRIPT-BINDINGS-LINUX.md` —
-  игровые Lua-привязки, скриптовая логика ИИ и точная граница до
-  оконного Lua-UI, FaceGen и полной Linux-миссии.
+  игровые Lua-привязки, скриптовая логика ИИ и историческая граница
+  линковки на момент их первого переноса.
+- `../Silent-Storm-Reconstruction/diagnostics/NATIVE-LUA-USED-SURFACE.md` —
+  проверка используемости оконных Lua-функций по исходной `game.db`,
+  разделение регистраций Windows/Linux и текущая граница этапа 2.
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-SCENE-SERIALIZATION-LINUX.md` —
   перенос регистраций объектов сцены, одинаковый сериализованный
   `CCInt` на x86/x64/ARM64 и граница до графических частей декали.

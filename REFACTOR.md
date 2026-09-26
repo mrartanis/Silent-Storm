@@ -1364,6 +1364,12 @@ Linux x86-64 и ARM64/QEMU прошли по 99/99 под ASan/UBSan.
 связаны с Linux-ядром; целый игровой сейв и миссия на Linux этим тестом
 не исполнены. Подробности — в
 `../Silent-Storm-Reconstruction/diagnostics/NATIVE-SAVE-MANAGER-LINUX.md`.
+Чистый native-media x64-архив коммита `130c74d6` создан в
+`G:\SS\lab\builds\stage2-linux-save-manager-20260926-01` (16 потоков);
+SHA-256 `Game.exe` —
+`356A67CA87DFF465EA8D00DA769AB56A64B9CB528770D580C937C47BFAEFDABB`.
+В архиве нет FMOD DLL, в EXE нет импортов `fmod.dll`/`FSOUND_`.
+Отдельный игровой smoke этого архива не заявляется.
 
 Исправление ширины адреса в игровом воксельном взрыве: хеш
 `SVoxelObjectKey` больше не приводит указатель к 32-битному `int`, но

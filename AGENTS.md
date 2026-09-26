@@ -110,8 +110,14 @@ Lua-сценарии, ИИ, бой, взрывы, разрушения и мар
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-SCENE-CORE-SPLIT.md` —
   подлинные CPU-методы `IPart`/комбайнера и регистрация `CNonePart`
   вынесены из D3D-модулей; одинаковые байты сериализации на Windows,
-  Linux x64 и ARM64. До headless-миссии остаётся владеющий сценой
-  `CLightGroup`, не заменяйте его фиктивным cast.
+  Linux x64 и ARM64. Подлинный `CLightGroup` теперь виден мировому коду,
+  и Linux-линковка проходит без фиктивного cast; до headless-миссии ещё
+  остаётся запуск игрового цикла и загрузка состояния миссии.
+- `../Silent-Storm-Reconstruction/diagnostics/NATIVE-WORLD-INIT.md` —
+  исполняемая на Windows x64 и Linux x64/ARM64 загрузка исходной `game.db`,
+  создание `CWorld` и выполнение четырёх стартовых Lua-файлов; проверка
+  Windows-пути и регистра компонентов для чтения на Linux. Команды и
+  ограничение «это ещё не миссия» указаны в документе.
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-STRUCTURE-LINUX.md` —
   уже перенесённый на Linux x64/ARM64 штатный `CStructureSaver`, объектный
   граф, packed-кодек, сохранение Lua-состояния и геометрические поля.
@@ -145,24 +151,24 @@ Lua-сценарии, ИИ, бой, взрывы, разрушения и мар
   `CheckItemsBreakGlass` подключена из настоящего `wOSBase.cpp`, не из
   заглушки. Здесь же временный UBSan-vptr gate и исправление UB в `CPool`.
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-AI-LOGIC-LINUX.md` —
-  Linux-компиляция оригинального `CAILogic`, Windows-тест жизненного цикла
-  и явная граница: `CUnitServer`/мировые команды ещё не связаны с Linux,
-  поэтому живой AI там не заявлен.
+  история первой Linux-компиляции оригинального `CAILogic`. Текущий
+  `NativeAILogicTests` уже исполняется на Windows x64 и Linux x64/ARM64
+  со связанной мировой зависимостью; это не проверка решений ИИ в миссии.
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-COMMAND-BRIDGE-LINUX.md` —
   общий Windows/Linux-мост `CCmdSetCommand`, исполняемый тест пропускаемой
   и обязательной команд на x86/x64/ARM64, а также граница до `CUnitServer`.
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-UNIT-SERVER-LINUX.md` —
-  полная Linux-компиляция исходного `CUnitServer` на x64/ARM64 и текущая
-  граница линковки с миром, состояниями юнита и Lua; это ещё не работающий
-  Linux-AI. Команды сборки и тестов приведены в этом документе.
+  полная Linux-компиляция исходного `CUnitServer` на x64/ARM64 и история
+  первоначальной границы линковки. Общий граф теперь связывается, но
+  решений ИИ в живой Linux-миссии эта проверка не доказывает.
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-UNIT-EXECUTION-LINUX.md` —
   продолжение командного контура: оригинальные `CDumbUnitServer`, состояния
   и аниматор юнита компилируются на Linux x64/ARM64, но пока не связаны в
   исполняемую миссию. Там перечислены оставшиеся группы зависимостей.
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-WORLD-EXECUTION-LINUX.md` —
   текущий пакет путей, атак и объектов мира: Windows x64 и Linux x64/ARM64
-  матрицы, тест досягаемости на x86/x64/ARM64, оставшийся разрыв линковки
-  и граница до живой Linux-миссии.
+  матрицы, тест досягаемости на x86/x64/ARM64 и историческая граница
+  линковки; более поздний тест создания мира описан в `NATIVE-WORLD-INIT.md`.
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-WORLD-EVENTS-SCENARIO-LINUX.md` —
   пакет игровых событий, ракет и графа сценария с Lua-мостом, проверенная
   матрица Windows/Linux и открытые UI/мировые зависимости.

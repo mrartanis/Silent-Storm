@@ -155,7 +155,13 @@ Lua-сценарии, ИИ, бой, взрывы, разрушения и мар
   оригинальные сетка разрушений, загрузчики зданий и рельефа на Linux;
   прямой тест взрыва и ограниченная сверка `game.db`/`Buildings.res`/
   `Terrain.res` на Windows x86/x64 и Linux x64/ARM64. Полный `BuildMap`
-  миссии этим ещё не подтверждён.
+  проверяется отдельно.
+- `../Silent-Storm-Reconstruction/diagnostics/NATIVE-MISSION-BUILD-LINUX.md` —
+  Linux-линковка и исполнение оригинального `BuildMap` на вариантах
+  218/810/4526, включая карту с 49 юнитами и 24 путевыми точками,
+  сверка семантического хеша с Windows x86/x64, исправление UB в
+  `SMapElement` и clue-slot; граница проверки — без выполнения скриптов
+  и живого AI.
 - `../Silent-Storm-Reconstruction/STAGE0-BASELINE.md` — зафиксированный x86
   эталон, данные, сборка, контрольные сценарии и известные ограничения.
 - `../Silent-Storm-Reconstruction/PORTING-WINX64.md` — журнал x64-проверок

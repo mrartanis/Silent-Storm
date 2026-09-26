@@ -1346,6 +1346,12 @@ Windows x64 собрал игру и прошёл 123/123 CTest, Linux x86-64 и
 ARM64/QEMU — по 98/98 под ASan/UBSan. Настоящий Linux-мир/ход ИИ
 пока не исполняется. Подробности — в
 `../Silent-Storm-Reconstruction/diagnostics/NATIVE-AI-WORLD-LINK.md`.
+Чистый x64 native-media архив коммита `146e9bbc` создан в
+`G:\SS\lab\builds\stage2-ai-share-20260926-01` (16 потоков);
+SHA-256 `Game.exe` —
+`74E9E8CCA582F8382A456E56A8C26C2E01C1011DB58605277B049C8DD8849BBC`.
+В архиве нет FMOD DLL, в EXE нет импортов `fmod.dll`/`FSOUND_`.
+Отдельный игровой smoke этого архива не заявляется.
 
 Исправление ширины адреса в игровом воксельном взрыве: хеш
 `SVoxelObjectKey` больше не приводит указатель к 32-битному `int`, но

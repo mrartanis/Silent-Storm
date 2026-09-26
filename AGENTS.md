@@ -135,6 +135,9 @@ Lua-сценарии, ИИ, бой, взрывы, разрушения и мар
   Linux-компиляция оригинального `CAILogic`, Windows-тест жизненного цикла
   и явная граница: `CUnitServer`/мировые команды ещё не связаны с Linux,
   поэтому живой AI там не заявлен.
+- `../Silent-Storm-Reconstruction/diagnostics/NATIVE-COMMAND-BRIDGE-LINUX.md` —
+  общий Windows/Linux-мост `CCmdSetCommand`, исполняемый тест пропускаемой
+  и обязательной команд на x86/x64/ARM64, а также граница до `CUnitServer`.
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-GAME-DB-LINUX.md` —
   загрузка оригинального `game.db` через игровые `BasicDB`/DBFormat на Linux
   x64/ARM64, сверка всех 155 таблиц и значений материалов, команды тестов,

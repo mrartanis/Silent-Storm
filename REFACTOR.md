@@ -942,11 +942,28 @@ MSVC-зависимые объявления enum, зависимые типы �
 `CheckCycling` использует тот же игровой генератор ISAAC через Linux-символ.
 Windows x64 `NativeAILogicTests` проверяет паузу/возобновление и завершение
 настоящего объекта `CAILogic`. Linux runtime-тест пока не линкуется без
-`CUnitServer`, `CCmdSetCommand` и RPG-миссии; компиляцию базы нельзя считать
+`CUnitServer`, RPG-миссии и остального мирового командного контура;
+отдельный метод `CCmdSetCommand` перенесён ниже. Компиляцию базы нельзя считать
 готовым Linux-AI или живым прохождением маршрута. См.
 `../Silent-Storm-Reconstruction/diagnostics/NATIVE-AI-LOGIC-LINUX.md`.
 После пакета полная Windows x64 сборка/CTest прошла 108/108; Linux GCC
 x64 и ARM64/QEMU собрали все цели и прошли по 80/80 с ASan/UBSan.
+Следующий срез командного контура связан и исполняется на Linux:
+`CCmdSetCommand::IsSkippable` вынесен без изменения поведения из
+`wInterface.cpp` в общий `wCommandBridge.cpp`. Тест оборачивает настоящие
+`CCmdContinue` и `CCmdStartCombat` и проверяет различие на восстановленном
+Windows x86, Windows x64, Linux GCC x64 и ARM64/QEMU. Исходный
+`wUnitCommands.cpp` также компилируется на Linux, но его регистрации и
+блокировки объектов в runtime-тесте пока не исполняются. Полная Windows x64
+матрица — 109/109, Linux GCC x64/ARM64 под ASan/UBSan — по 81/81. Это
+не живой `CUnitServer` и не выполнение AI-маршрута. См.
+`../Silent-Storm-Reconstruction/diagnostics/NATIVE-COMMAND-BRIDGE-LINUX.md`.
+Чистый native-media Windows x64-архив `stage2-command-bridge-20260926-01`
+собран из `f85441fabb09745de28ce0f779d5d96e9571db73` в 16 потоков;
+SHA-256 `Game.exe` —
+`7C0CE667D88638A4A950A23D713E71825A15F9964703977AD1FB12EE3730050E`.
+FMOD DLL и импорта `fmod.dll`/`FSOUND_` нет. Игровой smoke пока не
+подтверждён из-за той же D3D-сессии, которая не запускает старый архив.
 Чистый native-media Windows x64-архив `stage2-ai-logic-20260926-01`
 собран из `967e43e881290a87797e58c2d99f182e16b6bf50` в 16 потоков;
 SHA-256 `Game.exe` —

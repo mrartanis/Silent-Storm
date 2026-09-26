@@ -885,6 +885,13 @@ Clang x64.
 103/103; Linux GCC x64/ARM64 и Clang x64 — 77/77, GCC с ASan/UBSan.
 Windows x86 прошёл все четыре теста этого пакета. ARM64-вариант с
 49 юнитами выполнялся под QEMU около 97 секунд.
+Чистый native-media Windows x64-архив
+`stage2-mission-map-20260926-01` собран из `111dc78b` (16 потоков);
+SHA-256 `Game.exe` —
+`447E33CA0D8AC27FB63E26CD767D5C2BA0465987E5E1A2A031A5217B131A2641`.
+FMOD DLL и импорта FMOD в нём нет. Игровой smoke архива не выдаётся за
+пройденный: текущий D3D-сеанс пока не создаёт устройство, и прежний
+неизменённый архив воспроизводит тот же отказ до загрузки сейва.
 См. `../Silent-Storm-Reconstruction/diagnostics/NATIVE-MISSION-BUILD-LINUX.md`.
 Чистый Windows x64-архив `stage2-terrain-data-compile-20260925-01` из
 `bf019b3` загрузил `DB_OLD` в новом LabRun и завершился без дампа;

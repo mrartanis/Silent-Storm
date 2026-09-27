@@ -242,6 +242,12 @@ Lua-сценарии, ИИ, бой, взрывы, разрушения и мар
   сворачивание старших 32 бит на Windows x64, Linux x64 и ARM64.
   `NativeHeadSeedTests` проверяет арифметику без игровых ресурсов; это
   не доказательство одинаковых лиц между запусками или рендерами.
+- `../Silent-Storm-Reconstruction/diagnostics/NATIVE-CLANG-WORLD.md` —
+  дополнительная Linux/Clang-проверка настоящего headless `CWorld`, Lua,
+  боя и сохранений с ASan/UBSan. Там описаны явный GCC 11 toolchain для
+  Clang 14 на `artanis.c.ibgene.org`, `-no-pie` для стабильного запуска
+  санитайзера и исправления регистраций `game.db`/стоимости пробития.
+  Это не проверка графического Linux EXE или всей Clang-матрицы.
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-VOXEL-HASH-LINUX.md` —
   исправление усечения указателя в хеше игровых объектов взрыва,
   тест ширины адреса, тест настоящего воксельного рендера и открытая

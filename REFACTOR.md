@@ -97,8 +97,10 @@ Linux x86-64 и ARM64/QEMU прошли по 109/109 под ASan/UBSan.
 `G:\SS\lab\builds\stage2-party-shot-20260927-01`; SHA-256 `Game.exe` —
 `22023B3A73F1A19D991788B59B49D087B294463801DE365A2A9943957B5AA46B`.
 `fmod.dll` отсутствует; живой игровой smoke этой сборки пока не заявляется.
-Следующий `NativeWorldMission810PartyShotSave` сериализует живой `CWorld`
-после выстрела штатным `CStructureSaver` в память и читает его как новый мир.
+Следующий `NativeWorldMission810PartyShotSave` записывает живой `CWorld`
+после выстрела штатными `CFileStream`/`CStructureSaver` в файл каталога
+сборки, затем `SerializeShared` в том же порядке, что `CMission::SaveWorld`,
+и читает файл как новый мир под `CSharedHolder`.
 На Windows x64, Linux x86-64 и ARM64/QEMU под ASan/UBSan подтверждены время
 и время суток, HP героя, патроны/AP стрелка и наличие поздней Lua-функции
 миссии после восстановления. Полные матрицы после правок: Windows x64
@@ -106,9 +108,12 @@ Linux x86-64 и ARM64/QEMU прошли по 109/109 под ASan/UBSan.
 Сериализация обнаружила и позволила устранить неинициализированные поля
 аниматора, двери/ловушки, кэша маршрутов, состояния скелета и ИИ; Linux
 дополнительно потребовал штатную регистрацию `CCTime` из `Main/Time.cpp`.
-Это round-trip объекта мира, а не полный файловый `CMission::SaveWorld` с
-`SerializeShared` и не продолжение симуляции восстановленной миссии; этап 2
-остаётся открытым.
+Это файловый round-trip payload мира и общих кешей, но не вызов самого
+`CMission::SaveWorld` через активный слот, не проверка UI и не продолжение
+симуляции восстановленной миссии; этап 2 остаётся открытым.
+Для Linux-пути также перенесена регистрация игрового
+`CBuildInfoLoader` (shared-cache ID 108) из графического `GBuilding.cpp`
+в уже используемый headless `BuildingInfo.cpp`; Windows-регистрация сохранена.
 Чистый native-media x64-архив из `0dae7ca`:
 `G:\SS\lab\builds\stage2-party-shot-save-20260927-01`, SHA-256 `Game.exe`
 `F7CEDA604823F4D43D97DA623367D3EC7EF7D605A2730890B2FDE854600A6C05`;

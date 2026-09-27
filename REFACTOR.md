@@ -114,7 +114,11 @@ Linux x86-64 и ARM64/QEMU прошли по 109/109 под ASan/UBSan.
 Для Linux-пути также перенесена регистрация игрового
 `CBuildInfoLoader` (shared-cache ID 108) из графического `GBuilding.cpp`
 в уже используемый headless `BuildingInfo.cpp`; Windows-регистрация сохранена.
-Чистый native-media x64-архив из `0dae7ca`:
+Чистый native-media x64-архив файлового gate из `be79d00`:
+`G:\SS\lab\builds\stage2-party-shot-file-20260927-01`, SHA-256 `Game.exe`
+`282EA904AAC5E75EAC7443F462418827C3A7DE5A9D2F37F84B60144876672273`;
+`fmod.dll` отсутствует. Живой smoke именно этого архива пока не заявляется.
+Предыдущий чистый native-media x64-архив проверки в памяти из `0dae7ca`:
 `G:\SS\lab\builds\stage2-party-shot-save-20260927-01`, SHA-256 `Game.exe`
 `F7CEDA604823F4D43D97DA623367D3EC7EF7D605A2730890B2FDE854600A6C05`;
 `fmod.dll` отсутствует. Живой smoke именно этого архива пока не заявляется.

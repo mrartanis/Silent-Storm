@@ -109,6 +109,10 @@ Linux x86-64 и ARM64/QEMU прошли по 109/109 под ASan/UBSan.
 Это round-trip объекта мира, а не полный файловый `CMission::SaveWorld` с
 `SerializeShared` и не продолжение симуляции восстановленной миссии; этап 2
 остаётся открытым.
+Чистый native-media x64-архив из `0dae7ca`:
+`G:\SS\lab\builds\stage2-party-shot-save-20260927-01`, SHA-256 `Game.exe`
+`F7CEDA604823F4D43D97DA623367D3EC7EF7D605A2730890B2FDE854600A6C05`;
+`fmod.dll` отсутствует. Живой smoke именно этого архива пока не заявляется.
 Чистый native-media x64-архив из `c19b144` лежит в
 `G:\SS\lab\builds\stage2-prepare-shot-20260927-01`; SHA-256 `Game.exe` —
 `515177BA2C38C3C34952E2E189492E72E58CC523C80BFCDE0F392CB3B1E40207`.

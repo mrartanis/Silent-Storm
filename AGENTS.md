@@ -144,6 +144,15 @@ Steam не содержит harness: внутренние значения мо�
   в Windows CMake build, на Linux без `-C` (если `S2_GAME_DIR` содержит
   оригинальные `game.db` и `res/Waypoints.res`); для раздельных диапазонов
   и ARM64/QEMU см. команду в указанном диагностическом документе.
+  `NativeScenarioRootPartySaveWorlds` дополнительно сохраняет каждый из 52
+  миров, читает его и продолжает десять обновлений; пройден на Windows x64,
+  Linux x86-64 под ASan/UBSan/LSan и ARM64/QEMU под ASan/UBSan без LSan
+  (девять диапазонов, по одному процессу на корень). Короткий
+  `NativeWorldMission5247PartySave` защищает исправление ссылки на эффект
+  юнита: `SBoundEffect` теперь пишет ID записи БД и время, а не сырой
+  указатель. Запуск CTest — `-R 'NativeScenarioRootPartySaveWorlds|NativeWorldMission5247PartySave'`;
+  для scratch-ресурсов в корне запускайте `RunScenarioRootWorlds.cmake` с
+  `PARTY_SAVE_MODE=ON`, `SAVE_DIR` и диапазоном, как описано в диагностике.
   `NativeWorldMission5240` защищает звук шага с бронёй типа 5; в оригинальной
   базе соседнее с пятью радиусами поле `pSound` у записи ID 5 нулевое,
   поэтому переносимый accessor возвращает 0 без чтения за массивом.

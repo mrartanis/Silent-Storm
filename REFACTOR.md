@@ -247,6 +247,23 @@ ASan/UBSan; ARM64 занял около 460 секунд. Десять допо�
 `G:\SS\lab\builds\stage2-base-noattack-20260927-01`, SHA-256 `Game.exe`
 `5D9371031806CFE719325C8B1F8176E7EC19118412E220B49B45078AF92B2596`;
 `fmod.dll` отсутствует. Отдельный графический smoke этого архива не заявляется.
+Следующий узкий аудит ширины адресов исправил seed новой игровой головы:
+`CUnit::SetHead` раньше сворачивал старшие 32 бита адреса лишь при `_M_X64`,
+то есть на Windows x64, но не на Linux x86-64/ARM64. Теперь формула
+`low32 ^ high32` едина для 64-битных систем, а для 32-битного адреса
+сохраняет прежнее значение. `NativeHeadSeedTests` проверяет оба случая
+явными условиями, которые не исчезают в релизной сборке. Windows x64:
+141/141 CTest с собранным `Game.exe`; Linux x86-64: 118/118 под
+ASan/UBSan/LeakSanitizer; ARM64/QEMU: 118/118 под ASan/UBSan без
+LeakSanitizer в эмуляторе. Арифметика seed не гарантирует одинаковое лицо
+между процессами: адрес объекта зависит от раскладки памяти. Живой
+визуальный паритет со Steam не заявляется; этап 2 остаётся открытым.
+Команды и ограничения — в
+`../Silent-Storm-Reconstruction/diagnostics/PORTABLE-HEAD-SEED.md`.
+Чистый native-media x64-архив из `2a8d0da`:
+`G:\SS\lab\builds\stage2-head-seed-20260927-01`, SHA-256 `Game.exe`
+`118185CE08581B64EBEA5F8FEEB5EC2C10B2C20AC25DA42C31D4C046F27F59D8`;
+`fmod.dll` отсутствует. Отдельный живой smoke этого архива не заявляется.
 Чистый native-media x64-архив файлового gate из `be79d00`:
 `G:\SS\lab\builds\stage2-party-shot-file-20260927-01`, SHA-256 `Game.exe`
 `282EA904AAC5E75EAC7443F462418827C3A7DE5A9D2F37F84B60144876672273`;

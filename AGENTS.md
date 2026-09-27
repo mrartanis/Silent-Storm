@@ -119,8 +119,8 @@ Lua-сценарии, ИИ, бой, взрывы, разрушения и мар
   Windows-пути и регистра компонентов для чтения на Linux. Команды и
   ограничение этой начальной проверки указаны в документе.
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-WORLD-MISSION-LINUX.md` —
-  headless-создание миссий 218, 810, 2223 и 4526 штатным `CWorld::CreateRandom`
-  (две последние расширяют охват сценариев и крупной карты), запуск
+  headless-создание миссий 218, 810, 2223, 3829 и 4526 штатным
+  `CWorld::CreateRandom` (3829 и 4526 — прямые корни игровых сценариев), запуск
   `RunPostInit` и первых сегментов, включая одну карту с двумя юнитами и
   прикреплённым Lua-скриптом. `NativeWorldMission810UIAck` отдельно проводит
   Lua через ожидания UI-команд, подтверждая их ID без настоящего интерфейса,
@@ -273,6 +273,8 @@ Lua-сценарии, ИИ, бой, взрывы, разрушения и мар
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-MAP-DB-LINUX.md` —
   `NativeMapDatabaseTests`: все типизированные шаблоны и варианты карт из
   оригинального `game.db`, их игровые поля и связи; x86/x64/ARM64-сверка.
+  `--roots` выводит граф от `GlobalMaps`/`ScenarioZones`: 52 корня и 985
+  потенциально достижимых вариантов, без оборванных ссылок.
   Тест не заменяет исполнение `BuildMap` на данных миссии.
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-MAP-BUILD-LINUX.md` —
   Linux-сборка оригинального `MapBuild.cpp` и связанный тест его

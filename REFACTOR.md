@@ -243,6 +243,10 @@ Linux LeakSanitizer при этом обнаружил три неосвобож
 Linux x86-64 117/117 с активным LeakSanitizer и ARM64/QEMU 117/117 под
 ASan/UBSan; ARM64 занял около 460 секунд. Десять дополнительных прогонов
 базы и второго выстрела на Windows прошли.
+Чистый native-media x64-архив из `70659eb`:
+`G:\SS\lab\builds\stage2-base-noattack-20260927-01`, SHA-256 `Game.exe`
+`5D9371031806CFE719325C8B1F8176E7EC19118412E220B49B45078AF92B2596`;
+`fmod.dll` отсутствует. Отдельный графический smoke этого архива не заявляется.
 Чистый native-media x64-архив файлового gate из `be79d00`:
 `G:\SS\lab\builds\stage2-party-shot-file-20260927-01`, SHA-256 `Game.exe`
 `282EA904AAC5E75EAC7443F462418827C3A7DE5A9D2F37F84B60144876672273`;

@@ -344,6 +344,10 @@ Steam не содержит harness: внутренние значения мо�
   прямой тест взрыва и ограниченная сверка `game.db`/`Buildings.res`/
   `Terrain.res` на Windows x86/x64 и Linux x64/ARM64. Полный `BuildMap`
   проверяется отдельно.
+- `../Silent-Storm-Reconstruction/diagnostics/NATIVE-AI-GEOMETRY-RESOURCES.md` —
+  строгая сверка всех 1982 ID AI-геометрии из игровой БД с учётом 1974
+  отдельных файлов, включая предрассчитанные коллизионные сетки;
+  Windows x86/x64, Linux GCC/Clang x64 и ARM64/QEMU.
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-MISSION-BUILD-LINUX.md` —
   Linux-линковка и исполнение оригинального `BuildMap` на вариантах
   218/810/2400/4526, включая карту с 49 юнитами и 24 путевыми точками,

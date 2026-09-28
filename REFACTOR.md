@@ -2577,6 +2577,17 @@ Linux GCC x64 с санитайзерами, Linux Clang x64 и ARM64/QEMU с AS
 Подробности —
 `diagnostics/NATIVE-MOD-MANAGER-LINUX.md` репозитория реконструкции.
 
+После исправления частичного наложения полный Windows x64 Release CTest
+прошёл 158/158, Linux GCC x86-64 под ASan/UBSan/LSan — 127/127. Чистый
+native-media архив кода `ed0649b`:
+`G:\SS\lab\builds\stage2-optional-partial-mod-20260928-01`, SHA-256
+`Game.exe` — `B69B5B69E72BEAAA02D35D60597B614BA468639FFE0BB93868F96D5419A237D1`.
+`fmod.dll` отсутствует. Изолированный LabRun
+`G:\SS\lab\runs\stage2-optional-partial-mod-smoke-20260928-01` загрузил 155
+таблиц БД, открыл отзывчивое окно игры, принял `quit` и завершился без
+дампа. Это базовый smoke запуска, не проверка меню или игрового эффекта
+мода; дальнейшее расширение модов не является задачей этапа 2.
+
 Чистый native-media Windows x64 архив кода `03df263`:
 `G:\SS\lab\builds\stage2-mod-manager-20260928-01`, SHA-256 `Game.exe` —
 `C018D1B21DCC5B5C97071CCA4B91D2A09CE35E2766700967C95F8A4127385450`.

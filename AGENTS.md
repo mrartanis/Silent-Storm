@@ -347,7 +347,8 @@ Steam не содержит harness: внутренние значения мо�
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-AI-GEOMETRY-RESOURCES.md` —
   строгая сверка всех 1982 ID AI-геометрии из игровой БД с учётом 1974
   отдельных файлов, а также 193 наборов открытой/закрытой коллизии дверей
-  из `AIBSPTrees`; Windows x86/x64, Linux GCC/Clang x64 и ARM64/QEMU.
+  из `AIBSPTrees` и 211 наборов обратных матриц из `AIBinds`;
+  Windows x86/x64, Linux GCC/Clang x64 и ARM64/QEMU.
 - `../Silent-Storm-Reconstruction/diagnostics/NATIVE-MISSION-BUILD-LINUX.md` —
   Linux-линковка и исполнение оригинального `BuildMap` на вариантах
   218/810/2400/4526, включая карту с 49 юнитами и 24 путевыми точками,

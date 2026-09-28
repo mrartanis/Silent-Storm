@@ -2692,7 +2692,6 @@ AI со Steam. 61 пакетный ID вне таблицы пока не кла
 не следует объявлять его редакторским или обязательным без проверки
 реальных вызовов. Подробности — в
 `../Silent-Storm-Reconstruction/diagnostics/NATIVE-AI-GEOMETRY-RESOURCES.md`.
-
 Чистый native-media Windows x64 архив коммита `ab26344`:
 `G:\SS\lab\builds\stage2-ai-geometry-20260928-01`, SHA-256
 `Game.exe` — `30A3E4051D0A5FDE16660ACE9C72FC84B81B17BA5EC176592AF52F395A65CFFD`.
@@ -2721,3 +2720,24 @@ x64 Release и 131/131 на Linux GCC x86-64. Это подтверждает з
 таблиц БД, открыла отзывчивое окно `Silent Storm`, приняла `quit` через
 harness и завершилась без дампа; хеш запущенного EXE совпал с архивом.
 Это базовый smoke запуска, не проверка открывания двери.
+
+Игровой путь анимированных AI-оболочек использует `AIBinds.res` через
+`CAIMap::AddAnimatedHull`/`AddFlippingHull` и исходный `CFileAIBind`.
+Все 211 ID и 1577 обратных матриц позы прочитаны исходным загрузчиком;
+смысловой хеш `5E3D53E8692EC077` совпал на Windows x86 (диагностика),
+Windows x64, Linux GCC/Clang x86-64 и ARM64/QEMU. Linux был под
+ASan/UBSan, x86-64 также под LSan. Это проверка формата и загрузки
+матриц, а не анимированной коллизии по кадрам или всех ветвей
+`CBind::Recalc`. В текущей поставке нет отдельного каталога `aibinds`;
+все эти ID читаются из пакета. Подробности — в
+`../Silent-Storm-Reconstruction/diagnostics/NATIVE-AI-GEOMETRY-RESOURCES.md`.
+Обычный CTest после добавления этого пути прошёл 159/159 на Windows
+x64 Release и 132/132 на Linux GCC x86-64 под ASan/UBSan/LSan.
+
+Чистый native-media Windows x64 архив коммита `4452e08`:
+`G:\SS\lab\builds\stage2-ai-binds-20260928-01`, SHA-256 `Game.exe` —
+`6FB0967702744F4BE1D46BE2386D6F575038F8D609E9726ACB7C649FB5E4F8A5`.
+Изолированный LabRun `stage2-ai-binds-smoke-20260928-01` загрузил 155
+таблиц БД, открыл отзывчивое окно `Silent Storm`, принял `quit` через
+harness и завершился без дампа; хеш EXE совпал с архивом. Это smoke
+запуска, не проверка анимированной коллизии в миссии.

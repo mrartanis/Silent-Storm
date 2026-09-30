@@ -70,15 +70,21 @@ Steam не содержит harness: внутренние значения мо�
   только для согласованных данных и сценариев; этап 1 закрыт по согласованному
   объёму Windows/Linux без проверки macOS. Этап 2 закрыт по согласованному
   игровому объёму 2026-09-29; итоговые доказательства и ограничения — в
-  `STAGE2-CLOSEOUT.md`. Следующая интеграция SDL3/bgfx относится к этапам
-  3–4, полный поведенческий паритет со Steam — к этапу 7. Отложенный Mac
+  `STAGE2-CLOSEOUT.md`. SDL3 интегрирована в этапе 3; перенос на bgfx
+  относится к этапу 4. Windows-объём этапа 3 выполнен 2026-09-30: SDL3-окно/ввод в основной
+  игре, 170/170 тестов; пользователь перенёс Linux-игру и общую Windows/Linux
+  проверку в этап 4 вместе с bgfx, без отдельного запуска без графики.
+  Итоговый checklist — `STAGE3-CLOSEOUT.md`; подробные доказательства —
+  `../Silent-Storm-Reconstruction/diagnostics/SDL3-PLATFORM-WINDOWS.md`.
+  Полный поведенческий паритет со Steam относится к этапу 7. Отложенный Mac
   gate этапа 1 проверяется на настоящем Mac перед заявлением macOS-поддержки.
   Восстановленная 32-битная игра больше не целевая сборка: x86-оригинал и
   старые x86-пробы нужны лишь как сравнительный оракул.
 - `../Silent-Storm-Reconstruction/diagnostics/PORTABILITY-MEDIA.md` —
-  свидетельства, команды и ограничения этапа 1. SDL3 + bgfx проверены только
-  отдельной пробой `../Silent-Storm-Reconstruction/probes/sdl3-bgfx/README.md`,
-  не встроены в `Game.exe`; macOS и физический Linux GPU ещё не проверены.
+  свидетельства, команды и ограничения этапа 1. SDL3 встроена в Windows Game.exe
+  в этапе 3; bgfx остаётся отдельной пробой
+  `../Silent-Storm-Reconstruction/probes/sdl3-bgfx/README.md` до этапа 4.
+  macOS и физический Linux GPU ещё не проверены.
 - `../Silent-Storm-Reconstruction/diagnostics/PORTABLE-PACKAGE.md`,
   `../Silent-Storm-Reconstruction/diagnostics/STRUCTURE-WIRE.md` и
   `../Silent-Storm-Reconstruction/diagnostics/PORTABLE-STRUCTURE-CHUNKS.md`
